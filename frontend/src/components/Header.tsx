@@ -1,4 +1,4 @@
-import HeaderImage from "../assets/headerImage.jpg";
+import HeaderImage from "../assets/HeaderImage.jpg";
 
 type headerProps = {
   pageName: string;
