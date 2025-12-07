@@ -1,4 +1,4 @@
-import HeaderImage from "../assets/HeaderImage.jpg";
+import header from "../assets/header.jpg";
 
 type headerProps = {
   pageName: string;
@@ -9,7 +9,7 @@ function Header({ pageName }: headerProps) {
     <div className="items-center mt-24">
       <div
         className="hero h-60 bg-cover bg-center"
-        style={{ backgroundImage: `url(${HeaderImage})` }}
+        style={{ backgroundImage: `url(${header})` }}
       >
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content text-center">
