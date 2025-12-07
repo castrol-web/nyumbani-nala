@@ -14,7 +14,7 @@ function GetInvolvedCards() {
         {/* Heart Image */}
           <img className="h-12" src={heart}/>
         {/* Text */}
-        <h1 className="text-2xl font-bold tracking-wide" style={{ fontFamily: "inherit" }}>
+        <h1 className="text-2xl font-bold tracking-wide mb-2" style={{ fontFamily: "inherit" }}>
           GET INVOLVED
         </h1>
       </div>

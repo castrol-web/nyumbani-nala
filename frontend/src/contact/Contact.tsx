@@ -1,7 +1,9 @@
-
+import Header from "../components/Header"
 function Contact() {
   return (
-    <div>Contact</div>
+    <div>
+      <Header pageName="Contact Us" />
+    </div>
   )
 }
 
