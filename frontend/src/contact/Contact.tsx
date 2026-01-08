@@ -100,7 +100,7 @@ function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl"
+              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
               <FaPhoneAlt size={30} className="text-blue-500 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
@@ -110,7 +110,7 @@ function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl"
+              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
               <FaEnvelope size={30} className="text-blue-500 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Email</h3>
@@ -120,7 +120,7 @@ function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl"
+              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
               <FaMapMarkerAlt
                 size={30}
