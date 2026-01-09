@@ -1,14 +1,71 @@
+import { FaHireAHelper, FaHandsHelping } from "react-icons/fa";
 import Header from "../components/Header";
 import mission from "../assets/mission.png";
 import vision from "../assets/vision.jpg";
 import values from "../assets/values.jpg";
 import about1 from "../assets/about1.jpeg";
 import community from "../assets/community.jpg";
+import msamaria from "../assets/msamaria.jpg"
+import TeamMembers from "../components/team/TeamMembers";
 
 function About() {
   return (
     <div className="mx-auto">
       <Header pageName="About Us" />
+      <div>
+        <div className="mt-4">
+          <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10">
+            <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
+              <p className="text-sm">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the
+                more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+                discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum
+                The Extremes of Good and Evil by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular
+                during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.
+              </p>
+            </div>
+            <div className="avatar">
+              <div className="mask mask-hexagon-2 w-80 h-80 mx-auto">
+                <img src={msamaria} alt="about image" />
+              </div>
+            </div>
+          </div>
+
+          {/* div for some icons */}
+          <div className="flex mx-auto gap-4 justify-center">
+            <div className="w-70">
+              <span className="uppercase text-xs font-bold">supporting the community from anywhere around the globe</span>
+            </div>
+            <div>
+              <FaHireAHelper size={30} className="text-blue-500 grayscale hover:grayscale-0 mx-auto" />
+              <span className="text-xs">Extremes</span>
+            </div>
+            <div>
+              <FaHandsHelping size={30} className="text-blue-500 grayscale hover:grayscale-0 mx-auto" />
+              <span className="text-xs">Charity</span>
+            </div>
+
+          </div>
+          <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10 flex-row-reverse mt-10">
+            <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
+              <p className="text-sm">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the
+                more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+                discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum
+                The Extremes of Good and Evil by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular
+                during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.
+              </p>
+            </div>
+            <div className="avatar">
+              <div className="mask mask-hexagon-2 w-80 h-80 mx-auto">
+                <img src={msamaria} alt="about image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto mt-20 px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
@@ -84,6 +141,7 @@ function About() {
           />
         </div>
       </div>
+      <TeamMembers />
     </div>
   );
 }
