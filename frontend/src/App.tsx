@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import Home from "./home/Home";
 import Footer from "./components/Footer";
@@ -9,6 +12,13 @@ import ScrollToTop from "./components/scroll/ScrollToTop";
 import ScrollButton from "./components/scroll/ScrollButton";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
   return (
     <div className="bg-[#F6EFD2] text-[#000000] min-h-screen">
       <Router>

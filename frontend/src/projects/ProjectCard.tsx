@@ -15,7 +15,7 @@ function ProjectCard({ title, summary, projectImage, onLearnMore }: ProjectCardP
 
     return (
         <>
-            <div className="card shadow-sm outline-1 outline-gray-300 hover:shadow-md transition">
+            <div className="card shadow-sm outline-1 outline-gray-300 hover:shadow-md transition" data-aos="slide-up">
                 <div>
                     <div className="relative overflow-hidden">
                         <img

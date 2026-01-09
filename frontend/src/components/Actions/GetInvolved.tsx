@@ -1,4 +1,3 @@
-
 import type { IconType } from "react-icons";
 type GetInvolvedCardsProps = {
     name: string;
@@ -7,10 +6,12 @@ type GetInvolvedCardsProps = {
     action: string;
     Icon: IconType;
 }
+
+
 function GetInvolved({ name, description, imageUrl, action, Icon }: GetInvolvedCardsProps) {
     return (
         <>
-            <div className="card bg-base-100 image-full w-96 shadow-sm">
+            <div className="card bg-base-100 image-full w-96 shadow-sm" data-aos="slide-up">
                 <figure>
                     <img
                         src={imageUrl}

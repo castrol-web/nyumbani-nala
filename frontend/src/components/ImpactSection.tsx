@@ -9,8 +9,8 @@ export default function ImpactSection() {
   );
 
   return (
-    <section className="max-w-4xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-2 text-center">
+    <div className="max-w-4xl mx-auto p-6">
+      <h2 className="text-3xl font-bold mb-2 text-center" data-aos="fade-up">
         Your Donation, Their Future
       </h2>
       <p className="text-gray-600 mb-6 text-center">
@@ -52,6 +52,6 @@ export default function ImpactSection() {
           <p className="text-gray-500">Select a donation amount</p>
         )}
       </div>
-    </section>
+    </div>
   );
 }

@@ -41,7 +41,7 @@ const AboutSection = () => {
           {t("Who are we?")}
         </motion.h1>
 
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-relaxed" data-aos="fade-up">
           {t(
             "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut "
           )}
@@ -54,7 +54,7 @@ const AboutSection = () => {
             "Volunteer",
             "Foster Community",
           ].map((item, index) => (
-            <li key={index} className="flex items-center gap-2">
+            <li key={index} className="flex items-center gap-2" data-aos="fade-right" data-aos-delay={index * 100}>
               <FaCheckCircle className="text-[#E43636]" /> {t(item)}
             </li>
           ))}

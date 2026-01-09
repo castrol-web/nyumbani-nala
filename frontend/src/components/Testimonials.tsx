@@ -66,7 +66,7 @@ const data: Testimonial[] = [
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4 pt-10">
       <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-2">{t("Voices from the ground")}</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-2" data-aos="fade-up">{t("Voices from the ground")}</h2>
         <p className="text-gray-500 max-w-xl mx-auto">{t("Real stories about lives you've changed")}</p>
       </div>
 
