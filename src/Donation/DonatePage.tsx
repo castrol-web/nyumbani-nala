@@ -8,7 +8,6 @@ import Step3 from './Step3';
 import { stripePromise } from '../stripe';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || '';
-const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173';
 
 function DonatePage() {
   const [step, setStep] = useState(1);

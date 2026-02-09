@@ -3,7 +3,7 @@ import axios from 'axios';
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || '';
 const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173';
 
-function Step3({ donation, clientSecret, customerId, frequency, back, loading }: any) {
+function Step3({ donation, customerId, frequency, back, loading }: any) {
   const stripe = useStripe();
   const elements = useElements();
 
