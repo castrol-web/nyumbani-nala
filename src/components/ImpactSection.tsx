@@ -1,12 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { impacts } from "../../data/impacts.ts";
 import { useState } from "react";
 
-export default function ImpactSection() {
+function ImpactSection() {
   const [amount, setAmount] = useState(25);
+   const navigate = useNavigate();
 
   const impact = impacts.find(
     i => amount >= i.min && amount <= i.max
   );
+
+  const navigateToDonate = () => {
+    navigate("/donate", { state: { amount } });
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -44,7 +50,7 @@ export default function ImpactSection() {
               ))}
             </ul>
 
-            <button className="w-full btn btn-primary">
+            <button className="w-full btn btn-primary" onClick={navigateToDonate}>
               Donate ${amount}
             </button>
           </>
@@ -55,3 +61,5 @@ export default function ImpactSection() {
     </div>
   );
 }
+
+export default ImpactSection;

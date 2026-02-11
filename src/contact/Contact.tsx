@@ -1,28 +1,50 @@
 import { useState } from "react";
+import axios from "axios";
+import { toast,ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const url = import.meta.env.VITE_SERVER_URL;
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
 import GoogleMapEmbeded from "../components/GoogleMapEmbeded";
 
 function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setForm] = useState({
     name: "",
     email: "",
-    comment: "",
+    message: "",
+    subject: "",
   });
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...formData , [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    try {
+      const response = await axios.post(`${url}/api/user/contact`, formData);
+      if (response.status === 201) {
+        toast.success("Thank you for reaching out! Your message has been sent successfully.");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error: any) {
+      const msg = error?.response?.data?.message;
+      if (error.response?.status === 400 && msg) {
+        toast.error(msg);
+      } else if (error.response?.status === 404 && msg) {
+        toast.error(msg);
+      } else if (error.response?.status === 500) {
+        toast.error("An unexpected error occurred. Please try again later.");
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -71,9 +93,21 @@ function Contact() {
               required
               className="input input-bordered w-full text-slate-50"
             />
+            <div>
+              <label className="block text-sm font-medium text-gray-700">subject</label>
+              <input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                type="text"
+                required
+                className="input input-bordered w-full mt-1 text-slate-50"
+                placeholder="Subject"
+              />
+            </div>
             <textarea
-              name="comment"
-              value={formData.comment}
+              name="message"
+              value={formData.message}
               onChange={handleChange}
               rows={5}
               placeholder="Your Message"
@@ -84,7 +118,12 @@ function Contact() {
               type="submit"
               className="btn bg-red-500 hover:bg-red-600 text-white px-6 w-fit flex items-center"
             >
-              <FaPaperPlane className="mr-2" /> Send Message
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                <FaPaperPlane className="mr-2" />
+              )}
+              Send Message
             </button>
           </form>
         </motion.div>
@@ -133,6 +172,7 @@ function Contact() {
         </div>
       </div>
       <GoogleMapEmbeded />
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
   )
 }

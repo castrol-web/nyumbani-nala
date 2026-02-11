@@ -1,5 +1,7 @@
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import {toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || '';
 const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173';
 
@@ -18,7 +20,7 @@ function Step3({ donation, customerId, frequency, back, loading }: any) {
           redirect: 'if_required',
         });
         if (error) return alert(error.message);
-        alert('One-time donation successful ❤️');
+        toast.success('One-time donation successful ❤️');
       } else {
         // Confirm setup for subscription
         const { setupIntent, error } = await stripe.confirmSetup({
@@ -35,16 +37,16 @@ function Step3({ donation, customerId, frequency, back, loading }: any) {
           amount: donation.amount
         });
 
-        alert('Subscription active! Thank you ❤️');
+        toast.success('Subscription active! Thank you ❤️');
       }
     } catch (err) {
       console.error(err);
-      alert('Payment error. Check console.');
+      toast.error('Payment error. Check console.');
     }
   };
 
   return (
-    <div>
+    <div className="max-w-md mx-auto p-6 bg-primary/10 shadow-lg rounded-xl animate-fadeIn">
       <h2 className="text-xl font-bold mb-4">Payment</h2>
       <PaymentElement />
       <div className="flex gap-2 mt-4">
@@ -53,6 +55,7 @@ function Step3({ donation, customerId, frequency, back, loading }: any) {
           {loading ? 'Processing...' : `Donate €${donation.amount}`}
         </button>
       </div>
+      <ToastContainer position="top-center" />
     </div>
   );
 }
