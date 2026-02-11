@@ -39,7 +39,7 @@ function App() {
           <Route path="/donation/thank-you" element={<><Navbar /> <ThankYou /> <Footer /> <ScrollButton /> </>} />
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
+            <Route element={<Dashboard />} />
             <Route path="projects" element={<ManageProjects />} />
             <Route path="donations" element={<ManageDonations />} />
             <Route path="contacts" element={<ManageContacts />} />
