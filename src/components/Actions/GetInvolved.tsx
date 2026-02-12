@@ -7,6 +7,21 @@ type GetInvolvedCardsProps = {
     Icon: IconType;
 }
 
+const navigateToAction = (action: string) => {
+    switch (action) {
+        case "Support the most vulnerable":
+            window.location.href = "/donate";
+            break;      
+        case "Join Us":
+            window.location.href = "/contact";
+            break;  
+        case "View Projects":
+            window.location.href = "/our-projects";
+            break;
+        default:
+            break;
+    }
+}
 
 function GetInvolved({ name, description, imageUrl, action, Icon }: GetInvolvedCardsProps) {
     return (
@@ -22,7 +37,7 @@ function GetInvolved({ name, description, imageUrl, action, Icon }: GetInvolvedC
                     <h2 className="font-bold text-center text-3xl text-[#E43636]">{name}</h2>
                     <p className="text-center">{description}</p>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-primary btn-outline">{action}</button>
+                        <button className="btn btn-primary btn-outline" onClick={() => navigateToAction(action)}>{action}</button>
                     </div>
                 </div>
             </div>

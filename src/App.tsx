@@ -17,6 +17,7 @@ import ManageDonations from "./Admin/Donations/ManageDonations";
 import ManageContacts from "./Admin/Contact/ManageContacts";
 import DonatePage from "./Donation/DonatePage";
 import ThankYou from "./components/ThankYou";
+import BecomePartner from "./components/Actions/BecomePartner";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,8 @@ function App() {
           <Route path="/contact" element={<><Navbar /> <Contact /> <Footer /> <ScrollButton /> </>} />
           <Route path="/our-projects" element={<><Navbar /> <Projects /> <Footer /> <ScrollButton /> </>} />
           <Route path="/donation/thank-you" element={<><Navbar /> <ThankYou /> <Footer /> <ScrollButton /> </>} />
+          <Route path="/partner" element={<><Navbar /> <BecomePartner /> <Footer /> <ScrollButton /></>} />
+
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route element={<Dashboard />} />
