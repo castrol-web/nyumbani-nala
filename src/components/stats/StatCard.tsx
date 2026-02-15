@@ -10,7 +10,7 @@ type statType = {
     color?: string;
 };
 
-function StatCard({ icon: Icon, end, title, description, color = "text-blue-500" }: statType) {
+function StatCard({ icon: Icon, end, title, description, color = "text-[#F63049]" }: statType) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.6 });
 
@@ -20,16 +20,23 @@ function StatCard({ icon: Icon, end, title, description, color = "text-blue-500"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
-            className="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition outline-1 outline-gray-300"
+            className="p-6 rounded-xl shadow-lg text-center hover:shadow-2xl transition border-2 border-[#D02752] bg-[#111F35]"
         >
-            <div className={`mb-4 text-4xl ${color} flex justify-center`}>
+            {/* Icon */}
+            <div className={`mb-4 text-5xl ${color} flex justify-center`}>
                 <Icon />
             </div>
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">
+
+            {/* Number */}
+            <h3 className="text-3xl font-bold text-white mb-2">
                 {isInView && <CountUp end={end} duration={2} />}+
             </h3>
-            <h4 className="text-xl font-semibold text-gray-700">{title}</h4>
-            <p className="text-gray-500 text-sm mt-2">{description}</p>
+
+            {/* Title */}
+            <h4 className="text-xl font-semibold text-[#F63049]">{title}</h4>
+
+            {/* Description */}
+            <p className="text-[#D02752] text-sm mt-2">{description}</p>
         </motion.div>
     );
 }

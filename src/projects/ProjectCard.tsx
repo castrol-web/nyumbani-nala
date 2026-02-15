@@ -15,7 +15,7 @@ function ProjectCard({ title, summary, projectImage, onLearnMore }: ProjectCardP
 
     return (
         <>
-            <div className="card shadow-sm outline-1 outline-gray-300 hover:shadow-md transition" data-aos="slide-up">
+            <div className="card shadow-sm outline-1 outline-[#D02752] hover:shadow-md transition" data-aos="slide-up">
                 <div>
                     <div className="relative overflow-hidden">
                         <img
@@ -32,7 +32,7 @@ function ProjectCard({ title, summary, projectImage, onLearnMore }: ProjectCardP
                             >
                                 <path
                                     d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1350,60 V120 H0 Z"
-                                    fill="#F6EFD2"
+                                    fill="#F63049"
                                 />
                             </svg>
                         </div>

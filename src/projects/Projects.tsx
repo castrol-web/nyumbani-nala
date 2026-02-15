@@ -7,15 +7,8 @@ import useProjectsStore from "../zustand/UseProjectsStore";
 export interface Project {
   _id?: string;
   projectImage?: string;
-  sponsors?: string;
   title: string;
-  year: string;
-  address: string;
   summary: string;
-  goals: string[] | any;
-  requirements: string[] | any;
-  contact: { phone?: string; email?: string }[] | any;
-  teamMembers: { name?: string; role?: string }[] | any;
 }
 
 

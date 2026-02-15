@@ -12,62 +12,94 @@ function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 pb-6 grid grid-cols-1 md:grid-cols-3 gap-8  items-center justify-center text-center">
+    <footer className="relative bg-[#111F35] text-white pt-16 pb-6 overflow-hidden">
+
+      {/* Soft background glow */}
+      <div className="absolute inset-0 -z-10 
+        bg-[radial-gradient(circle_at_bottom_left,#8A244B_0%,#111F35_60%)] opacity-40" />
+
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+
         {/* Navigation */}
         <div>
-          <h2 className="text-lg font-bold mb-3">{t("Navigation")}</h2>
-          <ul className="space-y-1">
-            <li><a href="/" className="hover:text-orange-400">{t("Home")}</a></li>
-            <li><a href="/about" className="hover:text-orange-400">{t("About")}</a></li>
-            <li><a href="/contact" className="hover:text-orange-400">{t("Contact")}</a></li>
+          <h2 className="text-lg font-bold mb-4 text-[#F63049]">
+            {t("Navigation")}
+          </h2>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <NavLink to="/" className="hover:text-[#F63049] transition">
+                {t("Home")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className="hover:text-[#F63049] transition">
+                {t("About")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" className="hover:text-[#F63049] transition">
+                {t("Contact")}
+              </NavLink>
+            </li>
           </ul>
         </div>
 
         {/* Contact Info */}
         <div>
-          <h2 className="text-lg font-bold mb-3">Nyumbani nala</h2>
-          <p><span className="pr-4">{t("Location")}:</span> Moshi, Tanzania</p>
-          <p className="mt-1">{t("Phone")}: +34 616 454 974</p>
-          <p>
+          <h2 className="text-lg font-bold mb-4 text-[#F63049]">
+            Nyumbani Nala
+          </h2>
+          <p className="text-sm opacity-90">
+            {t("Location")}: Moshi, Tanzania
+          </p>
+          <p className="text-sm opacity-90 mt-1">
+            {t("Phone")}: +34 616 454 974
+          </p>
+          <p className="text-sm mt-1">
             {t("Email")}:{" "}
-            <a href="mailto:bnabhotel@gmail.com" className="text-blue-400 hover:underline">
+            <a
+              href="mailto:nyumbaninala@gmail.com"
+              className="text-[#D02752] hover:underline"
+            >
               nyumbaninala@gmail.com
             </a>
           </p>
         </div>
 
         {/* Socials */}
-        <div className="items-center justify-center text-center mx-auto">
-          <h2 className="text-lg font-bold mb-3 text-center">{t("Follow Us")}</h2>
-          <div className="flex justify-center md:justify-start space-x-4">
-            <a href="https://www.facebook.com/share/1ETv8qDcU8/?mibextid=wwXIfr" aria-label="Facebook">
-              <FaFacebook className="text-2xl text-blue-800 hover:text-blue-400" />
-            </a>
-            <a href="https://wa.me/+255764338937" aria-label="Whatsapp">
-              <FaWhatsapp className="text-2xl hover:text-green-700 text-green-800" />
-            </a>
-            <div className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-lg p-1">
-              <a href="https://www.instagram.com/bbhotel88?igsh=OHQ4eHBhMXQ5eWtp" aria-label="Instagram">
-                <FaInstagram className="text-xl text-white hover:text-slate-50" />
+        <div>
+          <h2 className="text-lg font-bold mb-4 text-[#F63049]">
+            {t("Follow Us")}
+          </h2>
+
+          <div className="flex justify-center md:justify-start gap-5 text-2xl">
+            {[FaFacebook, FaWhatsapp, FaInstagram, FaTiktok].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="text-white hover:text-[#F63049] 
+                transition duration-300 
+                hover:scale-110 
+                hover:shadow-lg hover:shadow-[#F63049]/40 rounded-full"
+              >
+                <Icon />
               </a>
-            </div>
-            <div className="bg-linear-to-tr from-[#69C9D0] via-[#EE1D52] to-[#010101] rounded-lg p-1">
-              <a href="https://www.tiktok.com/@bb.hotel4?_t=ZM-8yGqHJm8CLV&_r=1" aria-label="Tiktok">
-                <FaTiktok  className="text-xl text-white hover:text-slate-50" />
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-gray-700 text-sm text-center text-slate-400 pt-3 px-4">
+      <div className="mt-12 pt-4 border-t border-[#8A244B]/40 text-center text-sm opacity-70">
         <p>
-          {t("Privacy Policy")} • <NavLink to="">{t("Richkid Solutions")}</NavLink> © {year} • {t("All Rights Reserved")}
+          {t("Privacy Policy")} •{" "}
+          <NavLink to="/" className="hover:text-[#F63049] transition">
+            {t("Richkid Solutions")}
+          </NavLink>{" "}
+          © {year} • {t("All Rights Reserved")}
         </p>
       </div>
-    </div>
+    </footer>
   );
 }
 

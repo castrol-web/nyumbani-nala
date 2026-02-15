@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const url = import.meta.env.VITE_SERVER_URL;
 import Header from "../components/Header";
@@ -19,7 +19,7 @@ function Contact() {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...formData , [e.target.name]: e.target.value });
+    setForm({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,11 +60,11 @@ function Contact() {
         >
           {/* Left Side Text */}
           <div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-200 mb-6">
               They <span className="text-black">NEED</span> your{" "}
               <span className="text-red-500">HELP...</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-500 leading-relaxed">
               We'd love to hear from you. Whether it's a question, feedback,
               or a suggestion—you reaching out means a lot.
             </p>
@@ -131,9 +131,11 @@ function Contact() {
       {/* Contact Info Section */}
       <div className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-12">
-            Our Contact Information
-          </h2>
+          <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+            <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
+            <span className="text-xl font-bold">CONTACT US</span>
+            <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -143,7 +145,7 @@ function Contact() {
             >
               <FaPhoneAlt size={30} className="text-blue-500 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
-              <p className="text-gray-600">+1 800-123-4567</p>
+              <p className="text-gray-600">+34616454974</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -153,7 +155,7 @@ function Contact() {
             >
               <FaEnvelope size={30} className="text-blue-500 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Email</h3>
-              <p className="text-gray-600">info@example.com</p>
+              <p className="text-gray-600">asociacion.nala.ong@gmail.com</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}

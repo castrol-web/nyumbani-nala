@@ -5,6 +5,8 @@ import needy from "../assets/needy.jpg";
 import needy1 from "../assets/needy1.jpg";
 import needy2 from "../assets/needy2.jpg";
 
+// F63049,D02752,8A244B,111F35  color palette
+
 function Mainheader() {
     const [index, setIndex] = useState(0);
     const { t } = useTranslation();
@@ -13,20 +15,19 @@ function Mainheader() {
 
     const content = [
         {
-            heading: "Welcome to Nyumbani Nala ",
-            text: [
-                "In Tanzania, limited access to quality education and job opportunities remains one of the greatest challenges for vulnerable communities. At Nyumbani Nala Association, our core mission is to empower those most in need by opening pathways to education and entrepreneurship. Through close collaboration with local foundations and community leaders, we turn shared ideas into real, impactful projects that create lasting change.",
-            ],
+            heading: "Building opportunities",
+            button: "Donate"
         },
         {
-            heading: "Donate to Support a child's Education",
-            text: ["the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful."],
+            heading: "Empowering communities to thrive",
+            button: "Volunteer"
         },
         {
-            heading: "Nyumbani Nala Initiatives",
-            text: ["provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam"]
+            heading: "Opening doors to education and growth",
+            button: "Support Us"
         }
     ];
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -54,7 +55,10 @@ function Mainheader() {
                     </motion.div>
                 ))}
 
-                <div className="absolute inset-0 flex bg-black/50 flex-col justify-center items-center text-center p-6 z-20">
+                <div className="absolute inset-0 bg-linear-to-r from-[#111F35] via-[#111F35]/70 to-transparent z-10" />
+
+                {/* text on the left */}
+                <div className="absolute inset-0 flex flex-col justify-center items-start text-left pl-16 p-6 z-20 w-1/3 bg-linear-to-r from-[#111F35]/95 via-[#8A244B]/80 to-transparent">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={index}
@@ -62,10 +66,10 @@ function Mainheader() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 1 }}
-                            className="sm:max-w-3xl lg:max-w-4xl"
+                            className="sm:max-w-3xl lg:max-w-4xl mt-50"
                         >
                             <motion.h1
-                                className="text-white text-4xl md:text-6xl font-bold"
+                                className="text-white text-sm md:text-2xl font-bold"
                                 initial={{ y: -20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -73,32 +77,13 @@ function Mainheader() {
                             >
                                 {t(content[index].heading)}
                             </motion.h1>
-
-                            {/* Paragraphs */}
-                            {content[index].text.map((line, i) => (
-                                <motion.p
-                                    key={`text-${i}`}
-                                    className="text-white text-md mt-4"
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 1, delay: 0.8 + i * 0.1 }}
-                                >
-                                    {t(line)}
-                                </motion.p>
-                            ))}
+                            <motion.button className="mt-6 px-6 py-3 rounded-full bg-linear-to-r from-[#F63049] to-[#D02752] text-white font-semibold shadow-lg shadow-[#F63049]/40 hover:scale-105 transition">
+                                {content[index].button}
+                            </motion.button>
                         </motion.div>
                     </AnimatePresence>
                 </div>
-            </div>
-
-            <div
-                className="absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] z-0"
-                aria-hidden="true"
-            >
-                <div
-                    className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#F7C873] to-[#EA7300] opacity-15 sm:left-[calc(50%+36rem)] sm:w-288.75 header-custom-shadow"
-                />
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#111F35] to-transparent z-20" />
             </div>
         </>
     );

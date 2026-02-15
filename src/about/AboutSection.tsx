@@ -23,7 +23,7 @@ const AboutSection = () => {
         <motion.img
           src={vision}
           alt="nyumbani nala vision"
-          className="relative -top-20 lg:left-30 left-25 w-1/2 rounded-xl shadow-lg border-4 border-slate-50"
+          className="relative -top-20 lg:left-30 left-25 w-1/2 rounded-xl shadow-lg border-4 border-[#F63049]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
@@ -32,18 +32,16 @@ const AboutSection = () => {
 
       {/* Right - Text */}
       <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold items-center justify-center mx-auto"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {t("Who are we?")}
-        </motion.h1>
+        <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+          <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
+          <span className="text-xl font-bold">WHAT WE DO</span>
+          <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
+        </div>
+
 
         <p className="text-sm leading-relaxed" data-aos="fade-up">
           {t(
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut "
+            "At Nyumbani Nala, we believe that every child in Moshi deserves the chance to grow, learn, and thrive.Our mission is to ensure that children in vulnerable situations have their basic needs met, can attend school consistently, and receive the support they need to develop their full potential.Through close collaboration with local partners and the community, we work to create safe, nurturing environments where education becomes a pathway to opportunity and long-term well-being. Step by step, we are building brighter futures—one child at a time."
           )}
         </p>
 
@@ -65,19 +63,17 @@ const AboutSection = () => {
           <Link to="/about" className="btn btn-primary px-6">
             {t("About Us")}
           </Link>
-          <Link to="/founder-story">
-            <div className="flex items-center gap-2">
-              <img
-                src={values}
-                alt={t("Founder")}
-                className="w-10 h-10 rounded-full border"
-              />
-              <div className="text-sm text-left">
-                <p className="font-semibold">Marisa</p>
-                <p className="text-xs text-gray-500">{t("Founder & CEO")}</p>
-              </div>
+          <div className="flex items-center gap-2">
+            <img
+              src={values}
+              alt={t("Founder")}
+              className="w-10 h-10 rounded-full border"
+            />
+            <div className="text-sm text-left">
+              <p className="font-semibold">Marisa</p>
+              <p className="text-xs text-gray-500">{t("Founder & CEO")}</p>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </div>

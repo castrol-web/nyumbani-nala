@@ -9,21 +9,23 @@ import heart from "../../assets/heart.png";
 
 function GetInvolvedCards() {
   return (
-    <>
+    <div className="container mx-auto py-8">
       <div className="flex flex-col items-center mt-2">
         {/* Heart Image */}
-          <img className="h-12" src={heart}/>
+        <img className="h-12" src={heart} />
         {/* Text */}
-        <h1 className="text-2xl font-bold tracking-wide mb-2" style={{ fontFamily: "inherit" }}>
-          GET INVOLVED
-        </h1>
       </div>
-      <div className="lg:flex grid mx auto justify-center items-center gap-1.5">
-        <GetInvolved Icon={FaHandHoldingHeart} action={"Create hope"} name={"Become a partner"} description={"Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia"} imageUrl={partner} />
-        <GetInvolved Icon={LuUsersRound} action={"Support the most vulnerable"} name={"Make a Donation"} description={"Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."} imageUrl={donate} />
-        <GetInvolved Icon={FaHandsHelping} action={"Be part of the team"} name={"Volunteer"} description={"Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur"} imageUrl={volunteer} />
+      <div className="mx-auto mb-2 w-1/3 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+        <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
+        <span className="text-xl font-bold">Get Involved</span>
+        <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
       </div>
-    </>
+      <div className="lg:flex grid sm:mx-0 justify-center items-center gap-1.5 w-full">
+        <GetInvolved Icon={FaHandHoldingHeart} action={"Create hope"} name={"Become a partner"} description={" stand with us to build brighter futures"} imageUrl={partner} />
+        <GetInvolved Icon={LuUsersRound} action={"Make a Donation"} name={"Make a Donation"} description={"every contribution opens a door for someone"} imageUrl={donate} />
+        <GetInvolved Icon={FaHandsHelping} action={"Volunteer"} name={"Volunteer"} description={"change starts with you"} imageUrl={volunteer} />
+      </div>
+    </div>
 
   )
 }

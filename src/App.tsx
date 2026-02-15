@@ -28,7 +28,7 @@ function App() {
     });
   }, []);
   return (
-    <div className="bg-[#F6EFD2] text-[#000000] min-h-screen">
+    <div className="bg-[#111F35] text-white min-h-screen">
       <Router>
         <ScrollToTop />
         <Routes>
