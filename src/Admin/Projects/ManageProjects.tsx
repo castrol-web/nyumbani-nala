@@ -209,97 +209,135 @@ function ManageProjects() {
 
       {/* -------- MODAL -------- */}
 
-      {showModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-          <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl p-6 relative">
+{showModal && (
+  <div className="fixed inset-0 bg-[#111F35]/80 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+    
+    <div className="w-full max-w-2xl rounded-2xl p-8 relative
+                    bg-[#8A244B] 
+                    border border-[#D02752]
+                    shadow-[0_0_40px_rgba(246,48,73,0.3)]">
 
-            <button
-              onClick={handleCancel}
-              className="absolute top-4 right-4 btn btn-sm btn-circle btn-ghost"
-            >
-              ✕
-            </button>
+      {/* Close Button */}
+      <button
+        onClick={handleCancel}
+        className="absolute top-4 right-4 text-white hover:text-[#F63049] text-xl transition"
+      >
+        ✕
+      </button>
 
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              {editingProject ? "Edit Project" : "Add New Project"}
-            </h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-white">
+        {editingProject ? "Edit Project" : "Add New Project"}
+      </h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 
-              {/* Title */}
-              <div>
-                <input
-                  className="input input-bordered w-full"
-                  placeholder="Project Title"
-                  {...register("title", { required: "Title is required" })}
-                />
-                {errors.title && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.title.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Summary */}
-              <div>
-                <textarea
-                  className="textarea textarea-bordered w-full min-h-[120px]"
-                  placeholder="Write a short story about the project"
-                  {...register("summary", {
-                    required: "Summary is required",
-                  })}
-                />
-                {errors.summary && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.summary.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Image Preview */}
-              {previewImage && (
-                <div>
-                  <p className="text-sm text-gray-500 mb-2">Image Preview:</p>
-                  <img
-                    src={previewImage}
-                    alt="Preview"
-                    className="w-40 h-40 object-cover rounded-lg shadow"
-                  />
-                </div>
-              )}
-
-              {/* File Input */}
-              <input
-                type="file"
-                className="file-input w-full"
-                accept="image/*"
-                onChange={(e) =>
-                  handleImageChange(e.target.files?.[0] || null)
-                }
-              />
-
-              {/* Buttons */}
-              <div className="flex justify-end gap-3 pt-4">
-                <button
-                  type="button"
-                  className="btn btn-outline"
-                  onClick={handleCancel}
-                >
-                  Cancel
-                </button>
-
-                <button className="btn btn-primary" disabled={loading}>
-                  {loading ? (
-                    <span className="loading loading-spinner loading-sm" />
-                  ) : (
-                    "Save"
-                  )}
-                </button>
-              </div>
-            </form>
-          </div>
+        {/* Title */}
+        <div>
+          <input
+            className="w-full px-4 py-3 rounded-lg
+                       bg-[#111F35]
+                       border border-[#D02752]
+                       text-white
+                       placeholder:text-gray-400
+                       focus:outline-none
+                       focus:border-[#F63049]
+                       transition"
+            placeholder="Project Title"
+            {...register("title", { required: "Title is required" })}
+          />
+          {errors.title && (
+            <p className="text-[#F63049] text-sm mt-1">
+              {errors.title.message}
+            </p>
+          )}
         </div>
-      )}
+
+        {/* Summary */}
+        <div>
+          <textarea
+            className="w-full px-4 py-3 rounded-lg min-h-[120px]
+                       bg-[#111F35]
+                       border border-[#D02752]
+                       text-white
+                       placeholder:text-gray-400
+                       focus:outline-none
+                       focus:border-[#F63049]
+                       transition"
+            placeholder="Write a short story about the project"
+            {...register("summary", {
+              required: "Summary is required",
+            })}
+          />
+          {errors.summary && (
+            <p className="text-[#F63049] text-sm mt-1">
+              {errors.summary.message}
+            </p>
+          )}
+        </div>
+
+        {/* Image Preview */}
+        {previewImage && (
+          <div>
+            <p className="text-sm text-gray-300 mb-2">Image Preview:</p>
+            <img
+              src={previewImage}
+              alt="Preview"
+              className="w-40 h-40 object-cover rounded-lg border border-[#D02752]"
+            />
+          </div>
+        )}
+
+        {/* File Input */}
+        <input
+          type="file"
+          className="w-full text-white
+                     file:mr-4 file:py-2 file:px-4
+                     file:rounded-lg
+                     file:border-0
+                     file:bg-[#F63049]
+                     file:text-white
+                     hover:file:bg-[#D02752]
+                     transition"
+          accept="image/*"
+          onChange={(e) =>
+            handleImageChange(e.target.files?.[0] || null)
+          }
+        />
+
+        {/* Buttons */}
+        <div className="flex justify-end gap-3 pt-4">
+
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="px-5 py-2 rounded-lg
+                       border border-[#D02752]
+                       text-white
+                       hover:bg-[#111F35]
+                       transition"
+          >
+            Cancel
+          </button>
+
+          <button
+            disabled={loading}
+            className="px-6 py-2 rounded-lg
+                       bg-[#F63049]
+                       text-white
+                       font-semibold
+                       hover:bg-[#D02752]
+                       transition
+                       disabled:opacity-60"
+          >
+            {loading ? "Saving..." : "Save"}
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
 
       <ToastContainer position="top-right" />
     </div>

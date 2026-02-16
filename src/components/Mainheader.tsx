@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import needy from "../assets/needy.jpg";
+import front from "../assets/front.png";
 import needy1 from "../assets/needy1.jpg";
 import needy2 from "../assets/needy2.jpg";
 
@@ -11,7 +11,7 @@ function Mainheader() {
     const [index, setIndex] = useState(0);
     const { t } = useTranslation();
 
-    const images = [needy, needy1, needy2];
+    const images = [front, needy1, needy2];
 
     const content = [
         {
