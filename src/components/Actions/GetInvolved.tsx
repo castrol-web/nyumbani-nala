@@ -41,7 +41,7 @@ function GetInvolved({ name, description, imageUrl, action, Icon }: GetInvolvedC
                     <h2 className="font-bold text-center text-3xl text-[#E43636]">{name}</h2>
                     <p className="text-center">{description}</p>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-primary btn-outline" onClick={() => navigateToAction(action)}>{action}</button>
+                        <button className="btn bg-linear-to-r from-[#F63049] to-[#D02752] text-white btn-outline" onClick={() => navigateToAction(action)}>{action}</button>
                     </div>
                 </div>
             </div>

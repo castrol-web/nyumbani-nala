@@ -1,4 +1,5 @@
-import { FaHireAHelper, FaHandsHelping } from "react-icons/fa";
+import { FaHireAHelper, FaHandsHelping, FaPrayingHands, FaFistRaised, FaHandshake } from "react-icons/fa";
+import { LuSparkles } from "react-icons/lu";
 import Header from "../components/Header";
 import mission from "../assets/mission.png";
 import vision from "../assets/vision.jpg";
@@ -32,7 +33,7 @@ function About() {
                 adopted 17 street children as her own. Margaret was doing everything in her
                 power—working three jobs, asking for donations—just to pay the bills and keep
                 the children in school. That day, she shared a devastating truth: she had only
-                one week to pay an entire year’s expenses, or all the children would end up
+                one week to pay an entire year's expenses, or all the children would end up
                 back on the streets.
                 This shocking story ignited a mission. From that moment, Nyumbani Nala was
                 created—not only to help Margaret and her children but also to support other
@@ -141,23 +142,9 @@ function About() {
             </p>
           </div>
 
-          {/* Card */}
-          <div className="bg-linear-to-br from-[#F63049] via-[#D02752] to-[#8A244B] p-8 rounded-3xl shadow-lg border border-[#f88b9a] transition hover:shadow-2xl hover:scale-[1.01] duration-300">
-            <span className="text-xs uppercase tracking-widest text-blue-300">Values</span>
-            <h2 className="text-3xl font-bold text-white mt-1">Our Values</h2>
-            <ul className="mt-4 space-y-3 text-gray-300 text-base" data-aos="fade-up" data-aos-delay="100">
-              <li>Humility: Humility is intrinsic to us, valuing everything we have, seeking
-                ways to improve, and always thinking of others.</li>
-              <li>Effort: Effort is part of our DNA; we believe that any goal can be
-                achieved through hard work and perseverance.</li>
-              <li>Sharing: We are driven by the constant pursuit of working together to
-                create a real impact</li>
-              <li> Hope: We are committed to inspiring confidence in a brighter future,
-                believing that every child deserves the chance to dream and achieve a
-                better life</li>
-            </ul>
-          </div>
         </div>
+
+
 
         {/* RIGHT SECTION — CLEANER FLOATING IMAGE COMPOSITION */}
         <div className="relative flex justify-center mx-auto">
@@ -196,6 +183,82 @@ function About() {
           />
         </div>
       </div>
+      {/* Card */}
+    <div className="lg:flex 
+                bg-linear-to-br from-[#F63049] via-[#D02752] to-[#8A244B] 
+                p-10 rounded-3xl shadow-2xl 
+                border border-[#D02752]/40 
+                transition duration-300 mt-14">
+
+  {/* LEFT SIDE */}
+  <div className="lg:w-2/5 my-auto text-white pr-8">
+    <h2 className="text-4xl font-bold mb-4">
+      Our Values
+    </h2>
+
+    <p className="text-white/90 leading-relaxed">
+      Our core values guide everything we do — helping young people grow,
+      pursue education, and build a future filled with opportunity.
+    </p>
+  </div>
+
+  {/* RIGHT SIDE */}
+  <div
+    className="mt-8 lg:mt-0 grid gap-6 
+               md:grid-cols-2 lg:grid-cols-2 
+               lg:w-3/5"
+    data-aos="fade-up"
+    data-aos-delay="100"
+  >
+
+    {/* CARD */}
+    {[
+      {
+        icon: <FaPrayingHands />,
+        title: "Humility",
+        text: "Valuing what we have, constantly improving, and always putting others first.",
+      },
+      {
+        icon: <FaFistRaised />,
+        title: "Effort",
+        text: "We believe any goal can be achieved through hard work and perseverance.",
+      },
+      {
+        icon: <FaHandshake />,
+        title: "Sharing",
+        text: "Working together to create meaningful and lasting impact.",
+      },
+      {
+        icon: <LuSparkles />,
+        title: "Hope",
+        text: "Inspiring confidence in a brighter future for every child.",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] 
+                   backdrop-blur-sm
+                   p-6 rounded-2xl
+                   border border-[#D02752]/30
+                   hover:border-[#F63049]
+                   hover:shadow-[0_0_25px_rgba(246,48,73,0.3)]
+                   transition duration-300"
+      >
+        <div className="text-3xl text-[#F63049] mb-3">
+          {item.icon}
+        </div>
+
+        <h3 className="text-xl font-semibold text-white mb-2">
+          {item.title}
+        </h3>
+
+        <p className="text-white/70 text-sm leading-relaxed">
+          {item.text}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
       <TeamMembers />
     </div>
   );

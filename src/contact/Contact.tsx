@@ -141,34 +141,34 @@ function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
+              className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
-              <FaPhoneAlt size={30} className="text-blue-500 mb-4 mx-auto" />
+              <FaPhoneAlt size={30} className="text-[#F63049] mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
-              <p className="text-gray-600">+34616454974</p>
+              <p className="text-slate-300">+34616454974</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
+              className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
-              <FaEnvelope size={30} className="text-blue-500 mb-4 mx-auto" />
+              <FaEnvelope size={30} className="text-[#F63049] mb-4 mx-auto" />
               <h3 className="text-xl font-semibold text-gray-800">Email</h3>
-              <p className="text-gray-600">asociacion.nala.ong@gmail.com</p>
+              <p className="text-slate-300">asociacion.nala.ong@gmail.com</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="bg-gray-50 p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
+              className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] p-6 rounded-lg shadow-xl hover:shadow-2xl outline-1 outline-gray-300"
             >
               <FaMapMarkerAlt
                 size={30}
-                className="text-blue-500 mb-4 mx-auto"
+                className="text-[#F63049] mb-4 mx-auto"
               />
-              <h3 className="text-xl font-semibold text-gray-800">Address</h3>
-              <p className="text-gray-600">123 Example St, City, Country</p>
+              <h3 className="text-xl font-semibold text-[#111F35]">Address</h3>
+              <p className="text-slate-300">123 Example St, City, Country</p>
             </motion.div>
           </div>
         </div>

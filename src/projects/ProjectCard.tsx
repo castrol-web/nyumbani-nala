@@ -43,7 +43,7 @@ function ProjectCard({ title, summary, projectImage, onLearnMore }: ProjectCardP
                     <h2 className="text-2xl font-bold">{title}</h2>
                     <p className="text-sm">{truncateText(summary, 10)}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary btn-outline" onClick={onLearnMore}>Learn more</button>
+                        <button className="btn bg-linear-to-r from-[#F63049] to-[#D02752] text-white" onClick={onLearnMore}>Learn more</button>
                     </div>
                 </div>
             </div>

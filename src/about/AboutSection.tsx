@@ -60,7 +60,7 @@ const AboutSection = () => {
 
         {/* Call to Action */}
         <div className="mt-8 flex items-center justify-center lg:justify-start gap-4">
-          <Link to="/about" className="btn btn-primary px-6">
+          <Link to="/about" className="btn bg-linear-to-r from-[#F63049] to-[#D02752] text-white px-6">
             {t("About Us")}
           </Link>
           <div className="flex items-center gap-2">
