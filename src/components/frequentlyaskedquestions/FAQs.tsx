@@ -50,12 +50,12 @@ const FAQs = () => {
 
       {/* FAQ Header */}
       <div className="relative z-10 max-w-4xl mx-auto text-center mb-12">
-        <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+        <div className="mx-auto mb-2 w-1/2 text-white py-4 rounded-lg flex justify-center items-center">
           <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
           <span className="text-xl font-bold">{t("Frequently Asked Questions")}</span>
           <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
         </div>
-        <p className="text-gray-300 max-w-2xl mx-auto">
+        <p className="text-gray-500 max-w-2xl mx-auto">
           {t("Guest FAQs - Staying With Us Made Easy")}
         </p>
       </div>

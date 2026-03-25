@@ -6,7 +6,6 @@ const url = import.meta.env.VITE_SERVER_URL;
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
-import GoogleMapEmbeded from "../components/GoogleMapEmbeded";
 
 function Contact() {
   const [formData, setForm] = useState({
@@ -61,7 +60,7 @@ function Contact() {
           {/* Left Side Text */}
           <div>
             <h2 className="text-4xl font-bold text-gray-200 mb-6">
-              They NEED your   HELP...
+              THEY NEED YOUR   HELP
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
               We'd love to hear from you. Whether it's a question, feedback,
@@ -81,7 +80,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Full Name"
               required
-              className="input input-bordered w-full text-gray-900 bg-slate-50"
+              className="input input-bordered w-full text-slate-50"
             />
             <input
               type="email"
@@ -130,7 +129,7 @@ function Contact() {
       {/* Contact Info Section */}
       <div className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+          <div className="mx-auto mb-2 w-1/2 text-white py-4 rounded-lg flex justify-center items-center">
             <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
             <span className="text-xl font-bold">CONTACT US</span>
             <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
@@ -172,7 +171,6 @@ function Contact() {
           </div>
         </div>
       </div>
-      <GoogleMapEmbeded />
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
   )

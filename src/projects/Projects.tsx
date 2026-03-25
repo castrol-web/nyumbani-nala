@@ -35,7 +35,7 @@ function Projects() {
 
   return (
     <div>
-      <Header pageName="Our Projects" />
+      <Header />
       <div className="grid md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-6 p-6">
         {loadingProjects ? (
           <div className="flex justify-center py-10">

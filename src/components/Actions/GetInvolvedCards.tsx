@@ -15,7 +15,7 @@ function GetInvolvedCards() {
         <img className="h-12" src={heart} />
         {/* Text */}
       </div>
-      <div className="mx-auto mb-2 w-1/3 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+      <div className="mx-auto mb-2 w-2/3  text-white py-4 rounded-lg flex justify-center items-center">
         <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
         <span className="text-xl font-bold">Get Involved</span>
         <hr className="w-1/6 border-t-2 border-white ml-4"></hr>

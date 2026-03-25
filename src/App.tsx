@@ -18,6 +18,7 @@ import ManageContacts from "./Admin/Contact/ManageContacts";
 import DonatePage from "./Donation/DonatePage";
 import ThankYou from "./components/ThankYou";
 import BecomePartner from "./components/Actions/BecomePartner";
+import HowToHelp from "./components/HowToHelp/HowToHelp";
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" element={<><Navbar /> <About /> <Footer /> <ScrollButton /> </>} />
           <Route path="/donate" element={<><Navbar /> <DonatePage /> <Footer /> <ScrollButton /> </>} />
           <Route path="/contact" element={<><Navbar /> <Contact /> <Footer /> <ScrollButton /> </>} />
+          <Route path="/get-involved" element={<><Navbar /> <HowToHelp /> <Footer /> <ScrollButton /> </>} />
           <Route path="/our-projects" element={<><Navbar /> <Projects /> <Footer /> <ScrollButton /> </>} />
           <Route path="/donation/thank-you" element={<><Navbar /> <ThankYou /> <Footer /> <ScrollButton /> </>} />
           <Route path="/partner" element={<><Navbar /> <BecomePartner /> <Footer /> <ScrollButton /></>} />

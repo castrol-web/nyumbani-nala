@@ -17,8 +17,10 @@ function Navbar() {
   const navLinks = [
     { name: t("HOME"), to: "/" },
     { name: t("ABOUT"), to: "/about" },
-    { name: t("CONTACT US"), to: "/contact" },
     { name: t("OUR PROJECTS"), to: "/our-projects" },
+    { name: t("CONTACT US"), to: "/contact" },
+    {name: t("GET INVOLVED"), to: "/get-involved"}
+    ,
   ];
 
   return (

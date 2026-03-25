@@ -66,7 +66,7 @@ export const Testimonials = () => {
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4 pt-10">
       <div className="text-center mb-6">
-        <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+        <div className="mx-auto mb-2 w-1/2 text-white py-4 rounded-lg flex justify-center items-center">
           <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
           <span className="text-xl font-bold">Voices from  the ground</span>
           <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
