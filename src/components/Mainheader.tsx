@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import { TbHeartDollar } from "react-icons/tb";
+import { BiSolidDonateHeart } from "react-icons/bi";
+import { FaBaby } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import front from "../assets/front.png";
 import needy1 from "../assets/needy1.jpg";
 import needy2 from "../assets/needy2.jpg";
+import { Link } from "react-router-dom";
 
 // F63049,D02752,8A244B,111F35  color palette
 
@@ -66,10 +70,10 @@ function Mainheader() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 1 }}
-                            className="sm:max-w-3xl lg:max-w-4xl mt-50"
+                            className="sm:max-w-3xl lg:max-w-4xl"
                         >
                             <motion.h1
-                                className="text-white text-sm md:text-2xl font-bold"
+                                className="text-white text-sm md:text-2xl font-bold uppercase tracking-wide"
                                 initial={{ y: -20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -77,11 +81,31 @@ function Mainheader() {
                             >
                                 {t(content[index].heading)}
                             </motion.h1>
-                            <motion.button className="mt-6 px-6 py-3 rounded-full bg-linear-to-r from-[#F63049] to-[#D02752] text-white font-semibold shadow-lg shadow-[#F63049]/40 hover:scale-105 transition">
-                                {content[index].button}
-                            </motion.button>
+                            
                         </motion.div>
                     </AnimatePresence>
+                    <motion.div
+                        className="lg:flex gap-3 mt-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 1 }}
+                    >
+                        <Link to="/donate" className="group outline-1 p-8 rounded-md outline-[#D02752] items-center justify-center text-center mx-auto w-50 hover:bg-linear-to-r from-[#F63049] to-[#D02752] hover:text-white">
+                            <TbHeartDollar className="text-2xl text-[#D02752] mx-auto group-hover:text-slate-50" />
+                            <h1 className="text-lg">MAKE AN IMPACT</h1>
+                            <h1 className="text-xs text-[#D02752] group-hover:text-slate-50">DONATE NOW</h1>
+                        </Link>
+                        <Link to="/volunteer" className="group outline-1 p-8 rounded-md outline-[#D02752] items-center justify-center text-center mx-auto w-50 hover:bg-linear-to-r from-[#F63049] to-[#D02752] hover:text-white">
+                            <BiSolidDonateHeart className="text-2xl text-[#D02752] mx-auto group-hover:text-slate-50" />
+                            <h1 className="text-lg">BECOME A VOLUNTEER</h1>
+                            <h1 className="text-xs text-[#D02752] group-hover:text-slate-50">APPLY TODAY</h1>
+                        </Link>
+                        <Link to="/sponsor" className="group outline-1 p-8 rounded-md outline-[#D02752] items-center justify-center text-center mx-auto w-50 hover:bg-linear-to-r from-[#F63049] to-[#D02752] hover:text-white">
+                            <FaBaby className="text-2xl text-[#D02752] mx-auto group-hover:text-slate-50" />
+                            <h1 className="text-lg">SPONSOR A CHILD</h1>
+                            <h1 className="text-xs text-shadow-xs text-[#D02752] group-hover:text-slate-50">DONATE NOW</h1>
+                        </Link>
+                    </motion.div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#111F35] to-transparent z-20" />
             </div>

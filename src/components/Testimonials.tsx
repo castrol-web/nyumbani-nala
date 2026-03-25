@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar, FaRegStar } from 'react-icons/fa';
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import needy from "../assets/needy.jpg";
 import msamaria from "../assets/msamaria.jpg";
 import values from "../assets/values.jpg";
@@ -93,15 +93,6 @@ export const Testimonials = () => {
               <div className="flex-1 text-center md:text-left">
                 <FaQuoteLeft className="text-blue-400 text-2xl mb-2 mx-auto md:mx-0" />
                 <p className="text-slate-50 italic mb-3">"{testimonials[current].quote}"</p>
-                <div className="flex justify-center md:justify-start mb-1 text-yellow-400">
-                  {Array.from({ length: 5 }).map((_, i) =>
-                    i < testimonials[current].rating ? (
-                      <FaStar key={i} />
-                    ) : (
-                      <FaRegStar key={i} />
-                    )
-                  )}
-                </div>
                 <p className="text-sm text-slate-50">{testimonials[current].title}</p>
               </div>
             </div>
@@ -114,7 +105,7 @@ export const Testimonials = () => {
             type="button"
             title="Previous"
             onClick={prev}
-            className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg"
+            className="p-3 text-white rounded-full shadow-lg hover:bg-[#F63049]"
           >
             <FaChevronLeft />
           </button>
@@ -124,7 +115,7 @@ export const Testimonials = () => {
             type="button"
             title="Next"
             onClick={next}
-            className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg"
+            className="p-3  hover:bg-[#F63049] text-white rounded-full shadow-lg"
           >
             <FaChevronRight />
           </button>

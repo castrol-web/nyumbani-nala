@@ -1,4 +1,4 @@
-import { FaHireAHelper, FaHandsHelping, FaPrayingHands, FaFistRaised, FaHandshake } from "react-icons/fa";
+import {FaPrayingHands, FaFistRaised, FaHandshake } from "react-icons/fa";
 import { LuSparkles } from "react-icons/lu";
 import Header from "../components/Header";
 import mission from "../assets/mission.png";
@@ -12,17 +12,17 @@ import TeamMembers from "../components/team/TeamMembers";
 function About() {
   return (
     <div className="mx-auto">
-      <Header pageName="About Us" />
+      <Header />
       <div>
-        <div className="mt-4">
+        <div className="mt-28">
           <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10">
             <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
-              <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
+              <div className="mx-auto mb-2 w-1/2  text-white py-4 rounded-lg flex justify-items-start items-center">
                 <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
                 <span className="text-xl font-bold">WHERE IT BEGAN</span>
                 <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
               </div>
-              <p className="text-sm" data-aos="zoom-out">
+              <p className="text-lg" data-aos="zoom-out">
                 The idea for Nyumbani Nala Association was born in 2018, during a trip to
                 Moshi, Tanzania.
                 Founder Marisa Díaz traveled with her two children, seeking both tourism and a
@@ -48,21 +48,6 @@ function About() {
             </div>
           </div>
 
-          {/* div for some icons */}
-          <div className="flex mx-auto gap-4 justify-center">
-            <div className="w-70" data-aos="flip-up">
-              <span className="uppercase text-xs font-bold">supporting the community from anywhere around the globe</span>
-            </div>
-            <div data-aos="fade-up">
-              <FaHireAHelper size={30} className="text-blue-500 grayscale hover:grayscale-0 mx-auto" />
-              <span className="text-xs">Extremes</span>
-            </div>
-            <div data-aos="fade-up">
-              <FaHandsHelping size={30} className="text-blue-500 grayscale hover:grayscale-0 mx-auto" />
-              <span className="text-xs">Charity</span>
-            </div>
-
-          </div>
           <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10 flex-row-reverse mt-10">
             <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
               <div className="mx-auto mb-2 w-1/2 bg-linear-to-r from-[#F63049] via-[#D02752] to-[#8A244B] text-white py-4 rounded-lg flex justify-center items-center">
@@ -184,81 +169,81 @@ function About() {
         </div>
       </div>
       {/* Card */}
-    <div className="lg:flex 
+      <div className="lg:flex 
                 bg-linear-to-br from-[#F63049] via-[#D02752] to-[#8A244B] 
                 p-10 rounded-3xl shadow-2xl 
                 border border-[#D02752]/40 
                 transition duration-300 mt-14">
 
-  {/* LEFT SIDE */}
-  <div className="lg:w-2/5 my-auto text-white pr-8">
-    <h2 className="text-4xl font-bold mb-4">
-      Our Values
-    </h2>
+        {/* LEFT SIDE */}
+        <div className="lg:w-2/5 my-auto text-white pr-8">
+          <h2 className="text-4xl font-bold mb-4">
+            Our Values
+          </h2>
 
-    <p className="text-white/90 leading-relaxed">
-      Our core values guide everything we do — helping young people grow,
-      pursue education, and build a future filled with opportunity.
-    </p>
-  </div>
+          <p className="text-white/90 leading-relaxed">
+            Our core values guide everything we do — helping young people grow,
+            pursue education, and build a future filled with opportunity.
+          </p>
+        </div>
 
-  {/* RIGHT SIDE */}
-  <div
-    className="mt-8 lg:mt-0 grid gap-6 
+        {/* RIGHT SIDE */}
+        <div
+          className="mt-8 lg:mt-0 grid gap-6 
                md:grid-cols-2 lg:grid-cols-2 
                lg:w-3/5"
-    data-aos="fade-up"
-    data-aos-delay="100"
-  >
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
 
-    {/* CARD */}
-    {[
-      {
-        icon: <FaPrayingHands />,
-        title: "Humility",
-        text: "Valuing what we have, constantly improving, and always putting others first.",
-      },
-      {
-        icon: <FaFistRaised />,
-        title: "Effort",
-        text: "We believe any goal can be achieved through hard work and perseverance.",
-      },
-      {
-        icon: <FaHandshake />,
-        title: "Sharing",
-        text: "Working together to create meaningful and lasting impact.",
-      },
-      {
-        icon: <LuSparkles />,
-        title: "Hope",
-        text: "Inspiring confidence in a brighter future for every child.",
-      },
-    ].map((item, i) => (
-      <div
-        key={i}
-        className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] 
+          {/* CARD */}
+          {[
+            {
+              icon: <FaPrayingHands />,
+              title: "Humility",
+              text: "Valuing what we have, constantly improving, and always putting others first.",
+            },
+            {
+              icon: <FaFistRaised />,
+              title: "Effort",
+              text: "We believe any goal can be achieved through hard work and perseverance.",
+            },
+            {
+              icon: <FaHandshake />,
+              title: "Sharing",
+              text: "Working together to create meaningful and lasting impact.",
+            },
+            {
+              icon: <LuSparkles />,
+              title: "Hope",
+              text: "Inspiring confidence in a brighter future for every child.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-linear-to-r from-[#111F35] via-[#8A244B] to-[#111F35] 
                    backdrop-blur-sm
                    p-6 rounded-2xl
                    border border-[#D02752]/30
                    hover:border-[#F63049]
                    hover:shadow-[0_0_25px_rgba(246,48,73,0.3)]
                    transition duration-300"
-      >
-        <div className="text-3xl text-[#F63049] mb-3">
-          {item.icon}
+            >
+              <div className="text-3xl text-[#F63049] mb-3">
+                {item.icon}
+              </div>
+
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {item.title}
+              </h3>
+
+              <p className="text-white/70 text-sm leading-relaxed">
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
-
-        <h3 className="text-xl font-semibold text-white mb-2">
-          {item.title}
-        </h3>
-
-        <p className="text-white/70 text-sm leading-relaxed">
-          {item.text}
-        </p>
       </div>
-    ))}
-  </div>
-</div>
       <TeamMembers />
     </div>
   );

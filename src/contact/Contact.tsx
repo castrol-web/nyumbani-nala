@@ -49,7 +49,7 @@ function Contact() {
 
   return (
     <div>
-      <Header pageName="Contact Us" />
+      <Header />
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -61,19 +61,18 @@ function Contact() {
           {/* Left Side Text */}
           <div>
             <h2 className="text-4xl font-bold text-gray-200 mb-6">
-              They <span className="text-black">NEED</span> your{" "}
-              <span className="text-red-500">HELP...</span>
+              They NEED your   HELP...
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
               We'd love to hear from you. Whether it's a question, feedback,
-              or a suggestion—you reaching out means a lot.
+              or a suggestion you reaching out means a lot.
             </p>
           </div>
 
           {/* Right Side Form */}
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 bg-white p-8 rounded-2xl shadow-xl outline-1 outline-gray-300 mt-3"
+            className="space-y-6 bg-white p-8 rounded-2xl shadow-xl outline-1 outline-gray-300 mt-3 text-gray-50"
           >
             <input
               type="text"
@@ -82,7 +81,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Full Name"
               required
-              className="input input-bordered w-full text-slate-50"
+              className="input input-bordered w-full text-gray-900 bg-slate-50"
             />
             <input
               type="email"
