@@ -9,7 +9,7 @@ import needy1 from "../assets/needy1.jpg";
 import needy2 from "../assets/needy2.jpg";
 import { Link } from "react-router-dom";
 
-// F63049,D02752,8A244B,111F35  color palette
+
 
 function Mainheader() {
     const [index, setIndex] = useState(0);
@@ -85,7 +85,7 @@ function Mainheader() {
                         </motion.div>
                     </AnimatePresence>
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
+                        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 1 }}
@@ -93,28 +93,30 @@ function Mainheader() {
 
                         <Link
                             to="/donate"
-                            className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[500px] w-full mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
+                            className="group outline p-2 rounded-md outline-[#D02752] text-center lg:min-h-[150px] lg:not-last:max-w-[600px] mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
                         >
                             <TbHeartDollar className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />
-                            <h1 className="text-lg">MAKE AN IMPACT</h1>
+                            <h1 className="lg:text-lg sm:text-md md:text-[20px] mx-auto text-center">MAKE AN IMPACT</h1>
                             <h1 className="text-[10px] text-[#D02752] group-hover:text-white">DONATE NOW</h1>
                         </Link>
 
                         <Link
                             to="/volunteer"
-                            className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[500px] w-full mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
+                            className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[600px] mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
                         >
                             <BiSolidDonateHeart className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />
-                            <h1 className="text-lg">BECOME A VOLUNTEER</h1>
-                            <h1 className="text-[10px] text-[#D02752] group-hover:text-white">APPLY TODAY</h1>
+                            <div className="items-center justify-center p-1">
+                                <h1 className="lg:text-lg sm:text-md mx-auto text-center md:text-[20px]">BECOME A VOLUNTEER</h1>
+                                <h1 className="text-[10px] text-[#D02752] group-hover:text-white">APPLY TODAY</h1>
+                            </div>
                         </Link>
 
                         <Link
                             to="/sponsor"
-                            className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[500px] w-full mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
+                            className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[600px] mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
                         >
                             <FaBaby className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />
-                            <h1 className="text-lg">SPONSOR A CHILD</h1>
+                            <h1 className="lg:text-lg sm:text-md mx-auto text-center md:text-[20px]">SPONSOR A CHILD</h1>
                             <h1 className="text-[10px] text-[#D02752] group-hover:text-white">DONATE NOW</h1>
                         </Link>
 
