@@ -44,9 +44,12 @@ function DonationImpact() {
             { icon: <FaHome />, text: "Shelter and safety support" },
         ];
     }
-    const impacts = getImpact({amount });
+    const impacts = getImpact({ amount });
+    const gotoDonate = () => {
+        window.location.href = `/donate?amount=${amount}`;
+    }
     return (
-        <div className="mx-auto p-6 rounded-xl shadow-lg">
+        <div className="max-w-[900px] mx-auto p-6 rounded-xl shadow-lg">
             <h2 className="text-2xl font-bold mb-4 text-center">
                 Make an Impact ❤️
             </h2>
@@ -79,6 +82,7 @@ function DonationImpact() {
                     </div>
                 ))}
             </p>
+            <div className="items-center mx-auto justify-center text-center"><button onClick={gotoDonate} className="btn bg-[#F63049]/50 hover:bg-[#F63049] outline-1 outline-[#F63049] text-white px-6">Donate ${amount} now</button></div>
         </div >
     )
 }
