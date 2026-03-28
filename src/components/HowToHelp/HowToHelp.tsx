@@ -1,4 +1,5 @@
 import msamaria from "../../assets/msamaria.jpg"
+import DonationImpact from "../../Donation/DonationImpact"
 
 function HowToHelp() {
     return (
@@ -30,6 +31,7 @@ function HowToHelp() {
                     </div>
                 </div>
             </div>
+            <DonationImpact />
             <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10  mt-10">
                 <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
                     <div className="mx-auto mb-2 w-1/2  text-white py-4 rounded-lg flex justify-center items-center">
