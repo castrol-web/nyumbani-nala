@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSearchParams } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
 import { motion, AnimatePresence } from 'framer-motion';
 import Step1 from './Step1';
@@ -10,6 +11,14 @@ import { stripePromise } from '../stripe';
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || '';
 
 function DonatePage() {
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const amount = searchParams.get('amount');  
+    if (amount) {
+      setDonation(prev => ({ ...prev, amount: parseInt(amount) }));
+    }
+  }, [searchParams]);
+
   const [step, setStep] = useState(1);
   const [clientSecret, setClientSecret] = useState('');
   const [customerId, setCustomerId] = useState('');

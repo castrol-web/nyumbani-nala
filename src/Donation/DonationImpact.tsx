@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FaBook, FaUtensils, FaInfoCircle, FaGraduationCap } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function DonationImpact() {
 
   const [amount, setAmount] = useState(25);
+  const navigate = useNavigate();
 
   const donationLevels = [
     {
@@ -67,7 +69,7 @@ function DonationImpact() {
   const impact = getClosestLevel(amount);
 
   const gotoDonate = () => {
-    window.location.href = `/donate?amount=${amount}`;
+    navigate(`/donate?amount=${amount}`);
   };
 
   return (
