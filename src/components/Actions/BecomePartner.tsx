@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const url = import.meta.env.VITE_SERVER_URL || "http://localhost:8050";
 
 const BecomePartner = () => {
   const [loading, setLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     fullName: "",
     organizationName: "",
@@ -18,6 +17,8 @@ const BecomePartner = () => {
     proposal: "",
   });
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [document, setDocument] = useState<File | null>(null);
 
   const handleChange = (
@@ -28,20 +29,37 @@ const BecomePartner = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       data.append(key, value);
     });
 
     if (document) data.append("document", document);
-
     try {
-      await axios.post(`${url}/api/user/partners/apply`, data);
-      toast.success("Application submitted successfully 🎉");
-    } catch (error) {
-      toast.error("Something went wrong.");
+      setLoading(true);
+      const response = await axios.post(`${url}/api/user/partners/apply`, data)
+      if (response.status === 201) {
+        setFormData({
+          fullName: "",
+          organizationName: "",
+          email: "",
+          phone: "",
+          country: "",
+          website: "",
+          partnershipType: "",
+          proposal: ""
+        })
+        setDocument(null);
+        formRef.current?.reset(); // clears file input and checkbox
+      }
+      toast.success("Application submitted successfully!");
+
+    } catch (error: any) {
+      if (error) {
+        toast.error(error.response?.data?.message || "Failed to submit application.");
+      } else {
+        toast.error("Failed to submit application.");
+      }
     } finally {
       setLoading(false);
     }
@@ -61,7 +79,7 @@ const BecomePartner = () => {
         {/* Form Card */}
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
 
               {/* Contact Info Grid */}
               <div className="grid md:grid-cols-2 gap-6">
@@ -74,6 +92,7 @@ const BecomePartner = () => {
                     type="text"
                     name="fullName"
                     required
+                    value={formData.fullName}
                     onChange={handleChange}
                     className="input input-bordered"
                   />
@@ -86,6 +105,7 @@ const BecomePartner = () => {
                   <input
                     type="text"
                     name="organizationName"
+                    value={formData.organizationName}
                     onChange={handleChange}
                     className="input input-bordered"
                   />
@@ -98,6 +118,7 @@ const BecomePartner = () => {
                   <input
                     type="email"
                     name="email"
+                    value={formData.email}
                     required
                     onChange={handleChange}
                     className="input input-bordered"
@@ -111,6 +132,7 @@ const BecomePartner = () => {
                   <input
                     type="text"
                     name="phone"
+                    value={formData.phone}
                     required
                     onChange={handleChange}
                     className="input input-bordered"
@@ -124,6 +146,7 @@ const BecomePartner = () => {
                   <input
                     type="text"
                     name="country"
+                    value={formData.country}
                     required
                     onChange={handleChange}
                     className="input input-bordered"
@@ -137,6 +160,7 @@ const BecomePartner = () => {
                   <input
                     type="text"
                     name="website"
+                    value={formData.website}
                     onChange={handleChange}
                     className="input input-bordered"
                   />
@@ -153,6 +177,7 @@ const BecomePartner = () => {
                   name="partnershipType"
                   required
                   onChange={handleChange}
+                  value={formData.partnershipType}
                   className="select select-bordered"
                 >
                   <option value="">Select Type</option>
@@ -170,6 +195,7 @@ const BecomePartner = () => {
                 </label>
                 <textarea
                   name="proposal"
+                  value={formData.proposal}
                   required
                   rows={5}
                   onChange={handleChange}
@@ -187,6 +213,7 @@ const BecomePartner = () => {
                 </label>
                 <input
                   type="file"
+                  key={document ? "hasFile" : "noFile"}
                   className="file-input file-input-bordered"
                   onChange={(e) => setDocument(e.target.files?.[0] || null)}
                 />
@@ -217,6 +244,7 @@ const BecomePartner = () => {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
   );
 };
