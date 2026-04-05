@@ -47,169 +47,163 @@ interface ProjectDetailProps {
 }
 
 function ViewProjectDetail({ project, onBack }: ProjectDetailProps) {
+
     const statusStyles = {
-        active: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
-        paused: "bg-amber-500/20 text-amber-400 border border-amber-500/30",
-        completed: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+        active: "bg-emerald-500/20 text-emerald-400",
+        paused: "bg-amber-500/20 text-amber-400",
+        completed: "bg-blue-500/20 text-blue-400",
     }
 
     return (
-        <div className="space-y-6 mt-[118px]">
-            {/* header */}
-            <div>
-                <button
-                    type="button"
-                    onClick={onBack}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
-                >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to Projects
-                </button>
-            </div>
 
-            {/* Hero Section */}
-            <div className="relative rounded-xl overflow-hidden bg-linear-to-br from-primary/30 via-primary/10 to-secondary h-64">
-                <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-start justify-between">
-                        <div>
-                            <span className={`inline-block px-2.5 py-1 text-xs font-medium rounded-full capitalize mb-3 ${statusStyles[project.status]}`}>
-                                {project.status}
-                            </span>
-                            <h1 className="text-3xl font-bold text-foreground">{project.name}</h1>
-                            <p className="text-lg text-muted-foreground mt-1">{project.subtitle}</p>
-                        </div>
-                        <div className="flex items-center gap-3 bg-card/80 backdrop-blur rounded-lg p-3">
-                            <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl">
+        <>
+            <div className="mt-[118px] space-y-10">
+
+                {/* Back Button */}
+                <div className="pt-5 ml-3">
+                    < button
+                        onClick={onBack}
+                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition btn bg-[#F63049]/50 hover:bg-[#F63049] outline-1 outline-[#F63049] text-white px-6"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        Back to Projects
+                    </button >
+                </div>
+
+                {/* HERO */}
+                < div className="relative h-[340px] overflow-hidden" >
+
+                    <img
+                        src={project.coverImage}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                    />
+
+                    {/* overall darkening */}
+                    <div className="absolute inset-0 bg-black/40" />
+
+                    {/* stronger bottom gradient for text */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent" />
+
+                    <div className="absolute bottom-0 p-8 max-w-xl text-white">
+
+                        <span
+                            className={`px-3 py-1 text-xs rounded-full capitalize backdrop-blur-sm ${statusStyles[project.status]}`}
+                        >
+                            {project.status}
+                        </span>
+
+                        <h1 className="text-4xl font-bold mt-3 drop-shadow-md">
+                            {project.name}
+                        </h1>
+
+                        <p className="text-gray-200 mt-2 drop-shadow-sm">
+                            {project.subtitle}
+                        </p>
+
+                        <div className="flex items-center gap-3 mt-5">
+
+                            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center font-semibold">
                                 {project.leader.charAt(0)}
                             </div>
+
                             <div>
-                                <p className="font-medium text-foreground">{project.leader}</p>
-                                <p className="text-sm text-muted-foreground">{project.leaderRole}</p>
+                                <p className="text-sm font-medium drop-shadow-sm">{project.leader}</p>
+                                <p className="text-xs text-gray-300">{project.leaderRole}</p>
                             </div>
+
                         </div>
+
                     </div>
-                </div>
+                </div >
             </div>
+            <div className="lg:mx-10 mt-5 mx-3">
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-card/50 border border-border rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                        <p className="text-xs text-muted-foreground">Location</p>
-                        <p className="font-medium text-foreground">{project.location}</p>
-                    </div>
-                </div>
-                <div className="bg-card/50 border border-border rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-sky-400/20 flex items-center justify-center">
-                        <Users className="w-5 h-5 text-sky-400" />
-                    </div>
-                    <div>
-                        <p className="text-xs text-muted-foreground">Beneficiaries</p>
-                        <p className="font-medium text-foreground">{project.beneficiaries} people</p>
-                    </div>
-                </div>
-                <div className="bg-card/50 border border-border rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-400/20 flex items-center justify-center">
-                        <Calendar className="w-5 h-5 text-emerald-400" />
-                    </div>
-                    <div>
-                        <p className="text-xs text-muted-foreground">Established</p>
-                        <p className="font-medium text-foreground">{project.establishedYear}</p>
-                    </div>
-                </div>
-                <div className="bg-card/50 border border-border rounded-xl p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-amber-400/20 flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-amber-400" />
-                    </div>
-                    <div>
-                        <p className="text-xs text-muted-foreground">Contact</p>
-                        <p className="font-medium text-foreground text-sm truncate max-w-[120px]">
-                            {project.contactEmail || "Not set"}
-                        </p>
-                    </div>
-                </div>
-            </div>
+                {/* PROJECT STATS */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-3">
 
-            {/* Main Content */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Left Column - Description & Sections */}
-                <div className="lg:col-span-2 space-y-6">
-                    {/* Description */}
-                    <div className="bg-card border border-border rounded-xl">
-                        <div className="p-5 border-b border-border">
-                            <h2 className="text-lg font-semibold text-foreground">About This Project</h2>
-                        </div>
-                        <div className="p-5">
-                            <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                        </div>
-                    </div>
+                    <Stat icon={<MapPin />} label="Location" value={project.location} />
+                    <Stat icon={<Users />} label="Beneficiaries" value={`${project.beneficiaries} people`} />
+                    <Stat icon={<Calendar />} label="Established" value={project.establishedYear} />
+                    <Stat icon={<Mail />} label="Contact" value={project.contactEmail || "Not set"} />
 
-                    {/* Dynamic Sections */}
-                    {project.sections.map((section, index) => (
-                        <div key={section.id || index} className="bg-card border border-border rounded-xl">
-                            <div className="p-5 border-b border-border">
-                                <h2 className="text-lg font-semibold text-foreground">{section.title}</h2>
-                            </div>
-                            <div className="p-5">
-                                <p className="text-muted-foreground leading-relaxed">{section.content}</p>
-                            </div>
-                        </div>
-                    ))}
                 </div>
 
-                {/* Right Column - Sidebar */}
-                <div className="space-y-6">
-                    {/* Tags */}
-                    <div className="bg-card border border-border rounded-xl">
-                        <div className="p-4 border-b border-border">
-                            <h3 className="font-semibold text-foreground">Categories & Tags</h3>
-                        </div>
-                        <div className="p-4">
+                {/* MAIN CONTENT */}
+                <div className="grid lg:grid-cols-3 gap-10">
+
+                    {/* LEFT CONTENT */}
+                    <div className="lg:col-span-2 space-y-10">
+
+                        <Section title="About This Project">
+                            <p className="text-muted-foreground leading-relaxed">
+                                {project.description}
+                            </p>
+                        </Section>
+
+                        {project.sections.map((section, index) => (
+                            <Section key={section.id || index} title={section.title}>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    {section.content}
+                                </p>
+                            </Section>
+                        ))}
+
+                    </div>
+
+                    {/* SIDEBAR */}
+                    <div className="space-y-8">
+
+                        {/* TAGS */}
+                        <Section title="Categories & Tags">
+
                             <div className="flex flex-wrap gap-2">
-                                {project.tags.map((tag, index) => (
+
+                                {project.tags.map(tag => (
                                     <span
-                                        key={tag || index}
-                                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground"
+                                        key={tag}
+                                        className="text-xs px-3 py-1 rounded-full bg-secondary/60"
                                     >
                                         {tag}
                                     </span>
                                 ))}
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* Volunteer Opportunities */}
-                    <div className="bg-card border border-border rounded-xl">
-                        <div className="p-4 border-b border-border">
-                            <h3 className="font-semibold text-foreground flex items-center gap-2">
-                                <HandHeart className="w-5 h-5 text-primary" />
-                                Volunteer Opportunities
-                            </h3>
-                        </div>
-                        <div className="p-4 space-y-4">
-                            {project.volunteerOpportunities.map((opp, index) => (
-                                <div key={opp.id || index}>
-                                    <h4 className="font-medium text-foreground text-sm">{opp.title}</h4>
-                                    <p className="text-xs text-muted-foreground mt-1">{opp.description}</p>
-                                    {index < project.volunteerOpportunities.length - 1 && (
-                                        <div className="border-b border-border mt-3" />
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Links */}
-                    {project.website && (
-                        <div className="bg-card border border-border rounded-xl">
-                            <div className="p-4 border-b border-border">
-                                <h3 className="font-semibold text-foreground">External Links</h3>
                             </div>
-                            <div className="p-4">
+
+                        </Section>
+
+                        {/* VOLUNTEER */}
+                        <Section
+                            title={
+                                <span className="flex items-center gap-2">
+                                    <HandHeart className="w-4 h-4 text-primary" />
+                                    Volunteer Opportunities
+                                </span>
+                            }
+                        >
+
+                            <div className="space-y-4">
+
+                                {project.volunteerOpportunities.map((opp, index) => (
+                                    <div key={opp.id || index} className="p-4 outline-1 outline-[#d1d5db]/60 rounded-md">
+                                        <h4 className="font-medium text-sm">
+                                            {opp.title}
+                                        </h4>
+
+                                        <p className="text-xs text-muted-foreground mt-1">
+                                            {opp.description}
+                                        </p>
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </Section>
+
+                        {/* WEBSITE */}
+                        {project.website && (
+                            <Section title="External Link">
+
                                 <a
                                     href={project.website}
                                     target="_blank"
@@ -219,21 +213,57 @@ function ViewProjectDetail({ project, onBack }: ProjectDetailProps) {
                                     <Globe className="w-4 h-4" />
                                     Visit Website
                                 </a>
-                            </div>
-                        </div>
-                    )}
 
-                    {/* Metadata */}
-                    <div className="bg-card/50 border border-border rounded-xl p-4 text-xs text-muted-foreground space-y-1">
-                        <p>Created: {new Date(project.createdAt).toLocaleDateString()}</p>
-                        <p>Last Updated: {new Date(project.updatedAt).toLocaleDateString()}</p>
-                        <p>Project ID: {project.id}</p>
+                            </Section>
+                        )}
+
                     </div>
                 </div>
             </div>
+            {/* FOOTER META */}
+            <div className="text-xs text-muted-foreground flex flex-wrap gap-6 pt-6 border-t border-muted/30 mt-3 mx-auto text-center">
+
+                <div className="mx-auto flex gap-3">
+                    <p>Created : <span className="text-gray-400">{new Date(project.createdAt).toLocaleDateString()}</span></p>
+                    <p>Updated : <span className="text-gray-400">{new Date(project.updatedAt).toLocaleDateString()}</span></p>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default ViewProjectDetail
+
+
+function Section({ title, children }: any) {
+    return (
+        <div className="space-y-4">
+            <h2 className="text-xl font-semibold">
+                {title}
+            </h2>
+            {children}
         </div>
     )
 }
 
 
-export default ViewProjectDetail;
+function Stat({ icon, label, value }: any) {
+    return (
+        <div className="flex mx-auto gap-3">
+
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                {icon}
+            </div>
+
+            <div>
+                <p className="text-xs text-muted-foreground">
+                    {label}
+                </p>
+                <p className="font-medium">
+                    {value}
+                </p>
+            </div>
+
+        </div>
+    )
+}

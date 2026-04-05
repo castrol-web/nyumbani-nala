@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { ProjectCard } from "../Admin/Projects/ProjectCard"
 import ViewProjectDetail from "./ViewProjectDetail"
-import {Search} from "lucide-react"
+import { Search } from "lucide-react"
 import useProjectsStore from "../../src/zustand/UseProjectsStore"
 
 type ViewMode = "grid" | "detail" | "form"
@@ -40,7 +40,7 @@ export interface Project {
 }
 
 function Projects() {
-  const { Allprojects, fetchProjects } = useProjectsStore()
+  const { Allprojects, loadingProjects, fetchProjects } = useProjectsStore()
   const [projects, setProjects] = useState<Project[]>([])
   const [viewMode, setViewMode] = useState<ViewMode>("grid")
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -97,18 +97,28 @@ function Projects() {
     )
   }
 
+
+
+  if (loadingProjects) {
+    return (
+      <div className="flex justify-center items-center py-20 innerset-0 mt-24">
+        <div className="w-10 h-10 border-4 border-gray-300 border-t-[#F63049] rounded-full animate-spin mt-28"></div>
+      </div>
+    )
+  }
+
   // GRID VIEW
   return (
-    <div className="space-y-6 mt-[115px]">
+    <div className="space-y-6 mt-[115px] lg:mx-10 mx-2">
       {/* Filters */}
-      <div className="flex gap-4">
-        <div className="relative flex-1">
+      <div className="flex justify-center pt-5">
+        <div className="relative lg:w-1/2 w-full ">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
-            placeholder="Search projects..."
+            placeholder="Search projects by name, description or keywords..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 border rounded-lg"
+            className="w-full pl-10 pr-3 py-2 rounded-lg outline-1 outline-gray-300/20"
           />
         </div>
       </div>

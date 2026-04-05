@@ -43,10 +43,8 @@ export interface Project {
 }
 
 function ProjectsView() {
-  const { Allprojects, fetchProjects } = useProjectsStore()
-
+  const { Allprojects, loadingProjects, fetchProjects } = useProjectsStore()
   const [projects, setProjects] = useState<Project[]>([])
-
   const [viewMode, setViewMode] = useState<ViewMode>("grid")
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
@@ -82,6 +80,15 @@ function ProjectsView() {
     return matchesSearch && matchesStatus
   })
 
+  //loading state
+  if (loadingProjects) {
+    return (
+      <div className="flex justify-center items-center py-20 innerset-0 mt-24">
+        <div className="w-10 h-10 border-4 border-gray-300 border-t-[#F63049] rounded-full animate-spin mt-28"></div>
+      </div>
+    )
+  }
+
   // View project
   const handleViewProject = (project: Project) => {
     setSelectedProject(project)
@@ -106,27 +113,27 @@ function ProjectsView() {
     setDeleteDialogOpen(true)
   }
 
-const confirmDelete = async () => {
-  if (!projectToDelete) return;
+  const confirmDelete = async () => {
+    if (!projectToDelete) return;
 
-  try {
-    await axios.delete(`${url}/api/admin/delete/project/${projectToDelete.id}`);
+    try {
+      await axios.delete(`${url}/api/admin/delete/project/${projectToDelete.id}`);
 
-    setProjects((prev) =>
-      prev.filter((p) => p.id !== projectToDelete.id)
-    );
+      setProjects((prev) =>
+        prev.filter((p) => p.id !== projectToDelete.id)
+      );
 
-    setSelectedProject(null);
-    setViewMode("grid");
+      setSelectedProject(null);
+      setViewMode("grid");
 
-  } catch (error) {
-    console.error(error);
-    alert("Failed to delete project");
-  }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to delete project");
+    }
 
-  setDeleteDialogOpen(false);
-  setProjectToDelete(null);
-};
+    setDeleteDialogOpen(false);
+    setProjectToDelete(null);
+  };
 
   // Navigation
   const handleBackToGrid = () => {
@@ -143,18 +150,18 @@ const confirmDelete = async () => {
   }
 
   // FORM VIEW
- if (viewMode === "form") {
-  return (
-    <ProjectForm
-      project={selectedProject}
-      onCancel={handleCancelForm}
-      onSave={(updatedProject) => {
-        fetchProjects()
-        setSelectedProject(updatedProject)
-      }}
-    />
-  )
-}
+  if (viewMode === "form") {
+    return (
+      <ProjectForm
+        project={selectedProject}
+        onCancel={handleCancelForm}
+        onSave={(updatedProject) => {
+          fetchProjects()
+          setSelectedProject(updatedProject)
+        }}
+      />
+    )
+  }
 
   // DETAIL VIEW
   if (viewMode === "detail" && selectedProject) {

@@ -47,18 +47,24 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
 
   return (
     <div
-      className="group cursor-pointer overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
+      className="group mb-3 cursor-pointer overflow-hidden rounded-xl outline-1 outline-gray-300/30 bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
       onClick={onClick}
     >
       {/* Cover Image */}
-      <div className="relative h-48 bg-linear-to-br from-primary/20 to-secondary overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-t from-card/90 via-card/20 to-transparent z-10" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl font-bold text-primary/20">
-            {project.name.charAt(0)}
-          </div>
-        </div>
-        <span className={`absolute top-3 right-3 z-20 px-2.5 py-1 text-xs font-medium rounded-full capitalize ${statusStyles[project.status]}`}>
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={project.coverImage}
+          alt={project.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10" />
+
+        {/* Status */}
+        <span
+          className={`absolute top-3 right-3 z-20 px-2.5 py-1 text-xs font-medium rounded-full capitalize ${statusStyles[project.status]}`}
+        >
           {project.status}
         </span>
       </div>
