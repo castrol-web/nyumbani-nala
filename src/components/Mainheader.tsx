@@ -7,13 +7,14 @@ import { useTranslation } from "react-i18next";
 import front from "../assets/front.png";
 import needy1 from "../assets/needy1.jpg";
 import needy2 from "../assets/needy2.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 function Mainheader() {
     const [index, setIndex] = useState(0);
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const images = [front, needy1, needy2];
 
@@ -39,6 +40,10 @@ function Mainheader() {
         }, 15000);
         return () => clearInterval(interval);
     }, [images.length]);
+
+    const handleButtonClick = () => {
+        navigate(`/change-maker?form=open`);
+    }
 
     return (
         <>
@@ -100,8 +105,8 @@ function Mainheader() {
                             <h1 className="text-[10px] text-[#D02752] group-hover:text-white">DONATE NOW</h1>
                         </Link>
 
-                        <Link
-                            to="/volunteer"
+                        <button
+                            onClick={handleButtonClick}
                             className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[600px] mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
                         >
                             <BiSolidDonateHeart className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />
@@ -109,7 +114,7 @@ function Mainheader() {
                                 <h1 className="lg:text-lg sm:text-md mx-auto text-center md:text-[20px]">BECOME A VOLUNTEER</h1>
                                 <h1 className="text-[10px] text-[#D02752] group-hover:text-white">APPLY TODAY</h1>
                             </div>
-                        </Link>
+                        </button>
 
                         <Link
                             to="/sponsor"

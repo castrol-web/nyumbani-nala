@@ -1,6 +1,8 @@
 import { FaDollarSign } from "react-icons/fa";
 import { GiLoveMystery } from "react-icons/gi";
 import StatsCards from "./StatsCards";
+import DonationChart from "./DonationChart";
+import DonationsTable from "./DonationsTable";
 
 
 function OverviewView() {
@@ -31,7 +33,18 @@ function OverviewView() {
           trendDirection="up"
         />
       </div>
+      <div>
+        <DonationChart />
+      </div>
 
+
+      {/* Table and Activity */}
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <DonationsTable />
+        </div>
+        
+      </div>
     </div>
   )
 }

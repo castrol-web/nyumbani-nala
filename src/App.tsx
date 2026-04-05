@@ -12,13 +12,14 @@ import ScrollToTop from "./components/scroll/ScrollToTop";
 import ScrollButton from "./components/scroll/ScrollButton";
 import AdminLayout from "./Admin/dashboard/AdminLayout";
 import OverviewView from "./Admin/dashboard/OverviewView";
-import ManageProjects from "./Admin/Projects/ManageProjects";
 import ManageDonations from "./Admin/Donations/ManageDonations";
 import ManageContacts from "./Admin/Contact/ManageContacts";
 import DonatePage from "./Donation/DonatePage";
 import ThankYou from "./components/ThankYou";
 import BecomePartner from "./components/Actions/BecomePartner";
 import HowToHelp from "./components/HowToHelp/HowToHelp";
+import ProjectsView from "./Admin/Projects/ProjectsView";
+import ChangeMaker from "./components/Actions/ChangeMaker";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/about" element={<><Navbar /> <About /> <Footer /> <ScrollButton /> </>} />
           <Route path="/donate" element={<><Navbar /> <DonatePage /> <Footer /> <ScrollButton /> </>} />
           <Route path="/contact" element={<><Navbar /> <Contact /> <Footer /> <ScrollButton /> </>} />
+          <Route path="/change-maker" element={<><Navbar /> <ChangeMaker /> <Footer /> <ScrollButton /> </>} />
           <Route path="/get-involved" element={<><Navbar /> <HowToHelp /> <Footer /> <ScrollButton /> </>} />
           <Route path="/our-projects" element={<><Navbar /> <Projects /> <Footer /> <ScrollButton /> </>} />
           <Route path="/donation/thank-you" element={<><Navbar /> <ThankYou /> <Footer /> <ScrollButton /> </>} />
@@ -45,7 +47,7 @@ function App() {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<OverviewView />} />
-            <Route path="projects" element={<ManageProjects />} />
+            <Route path="projects" element={<ProjectsView />} />
             <Route path="donations" element={<ManageDonations />} />
             <Route path="contacts" element={<ManageContacts />} />
           </Route>

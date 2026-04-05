@@ -15,6 +15,11 @@ function Contact() {
     subject: "",
   });
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const nameRegex = /^[a-zA-Z\s'-]{2,50}$/; // allows letters, spaces, hyphens, apostrophes 
+  const phoneRegex = /^\+?\d{7,15}$/; // allows optional +, 7-15 digits
+
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,6 +28,27 @@ function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message || !formData.subject) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+    if (!nameRegex.test(formData.name)) {
+      toast.error("Please enter a valid name (2-50 characters, letters, spaces, hyphens, apostrophes)");
+      return;
+    }
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    if (formData.message.length < 10) {
+      toast.error("Message should be at least 10 characters long");
+      return;
+    }
+    if(!phoneRegex.test(formData.message) && formData.message.match(/\d/)) {
+      toast.error("If you include a phone number in your message, please ensure it's valid (7-15 digits, optional +)");
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await axios.post(`${url}/api/user/contact`, formData);
@@ -71,47 +97,57 @@ function Contact() {
           {/* Right Side Form */}
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 bg-white p-8 rounded-2xl shadow-xl outline-1 outline-gray-300 mt-3 text-gray-50"
+            className="space-y-6 p-8 rounded-2xl bg-[#111F35] shadow-xl outline-1 outline-gray-300/40 mt-3 text-gray-50"
           >
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Full Name"
-              required
-              className="input input-bordered w-full text-slate-50"
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email Address"
-              required
-              className="input input-bordered w-full text-slate-50"
-            />
             <div>
-              <label className="block text-sm font-medium text-gray-700">subject</label>
+              <label className="block text-sm font-medium text-gray-200">Enter your name </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Full Name"
+                required
+                className="w-full text-slate-50 bg-[#111F35] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded p-2"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-200">Enter your email </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email Address"
+                required
+                className="w-full text-slate-50 bg-[#111F35] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded p-2"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-200">subject </label>
               <input
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 type="text"
                 required
-                className="input input-bordered w-full mt-1 text-slate-50"
+                className="w-full text-slate-50 bg-[#111F35] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded p-2"
                 placeholder="Subject"
               />
             </div>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={5}
-              placeholder="Your Message"
-              required
-              className="textarea textarea-bordered w-full text-slate-50"
-            ></textarea>
+            <div>
+              <label className="block text-sm font-medium text-gray-200">Message </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Your Message"
+                required
+                className="textarea textarea-bordered w-full text-slate-50 bg-[#111F35] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded p-2"
+              ></textarea>
+            </div>
+
             <button
               type="submit"
               className="btn bg-red-500 hover:bg-red-600 text-white px-6 w-fit flex items-center"

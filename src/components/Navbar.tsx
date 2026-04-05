@@ -18,9 +18,9 @@ function Navbar() {
     { name: t("HOME"), to: "/" },
     { name: t("ABOUT"), to: "/about" },
     { name: t("OUR PROJECTS"), to: "/our-projects" },
+    { name: t("CHANGE MAKER"), to: "/change-maker" },
+    {name: t("GET INVOLVED"), to: "/get-involved"},
     { name: t("CONTACT US"), to: "/contact" },
-    {name: t("GET INVOLVED"), to: "/get-involved"}
-    ,
   ];
 
   return (
@@ -60,8 +60,8 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-          <ul className="menu menu-horizontal px-1 gap-4 font-medium">
+        <div className="hidden lg:flex absolute left-1/3 ">
+          <ul className="menu menu-horizontal px-1 gap-2 font-medium">
             {navLinks.map((link) => (
               <li key={link.to}>
                 <NavLink

@@ -2,29 +2,49 @@ import { create } from "zustand";
 import axios from 'axios';
 const url = import.meta.env.VITE_SERVER_URL;
 
+export interface ProjectSection {
+    _id: string
+    title: string
+    content: string
+}
+
+export interface VolunteerOpportunity {
+    _id: string
+    title: string
+    description: string
+}
+
 interface Project {
-    _id?: string,
-    projectImage: string,
-    requirements: string[],
-    address: string,
-    goals: string[],
-    year: string,
-    contact: string[],
-    title: string,
-    teamMembers: string[],
-    summary: string
+    _id: string
+    name: string
+    subtitle: string
+    description: string
+    leader: string
+    leaderRole: string
+    location: string
+    coverImage: string
+    status: "active" | "paused" | "completed"
+    beneficiaries: number
+    establishedYear: number
+    sections: ProjectSection[]
+    volunteerOpportunities: VolunteerOpportunity[]
+    tags: string[]
+    contactEmail?: string
+    website?: string
+    createdAt: string
+    updatedAt: string
 }
 
 
 interface projectState {
-    projects: Project[],
+    Allprojects: Project[],
     loadingProjects: boolean,
     err: string,
     fetchProjects: () => Promise<void>
 }
 
 const useProjectsStore = create<projectState>((set) => ({
-    projects: [],
+    Allprojects: [],
     loadingProjects: false,
     err: '',
     fetchProjects: async () => {
@@ -33,7 +53,7 @@ const useProjectsStore = create<projectState>((set) => ({
             const response = await axios.get(`${url}/api/user/projects`);
             if (response.status === 200) {
                 set({
-                    projects: response.data
+                    Allprojects: response.data
                 })
             }
         } catch (error: any) {

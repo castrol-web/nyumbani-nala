@@ -1,69 +1,133 @@
-import { useState, useEffect } from "react";
-import Header from "../components/Header"
-import ProjectCard from "./ProjectCard"
-import ProjectDetails from "./ProjectDetails";
-import useProjectsStore from "../zustand/UseProjectsStore";
+import { useEffect, useState } from "react"
+import { ProjectCard } from "../Admin/Projects/ProjectCard"
+import ViewProjectDetail from "./ViewProjectDetail"
+import {Search} from "lucide-react"
+import useProjectsStore from "../../src/zustand/UseProjectsStore"
 
-export interface Project {
-  _id?: string;
-  projectImage?: string;
-  title: string;
-  summary: string;
+type ViewMode = "grid" | "detail" | "form"
+
+export interface ProjectSection {
+  id: string
+  title: string
+  content: string
 }
 
+export interface VolunteerOpportunity {
+  id: string
+  title: string
+  description: string
+}
+
+export interface Project {
+  id: string
+  name: string
+  subtitle: string
+  description: string
+  leader: string
+  leaderRole: string
+  location: string
+  coverImage: string
+  status: "active" | "paused" | "completed"
+  beneficiaries: number
+  establishedYear: number
+  sections: ProjectSection[]
+  volunteerOpportunities: VolunteerOpportunity[]
+  tags: string[]
+  contactEmail?: string
+  website?: string
+  createdAt: string
+  updatedAt: string
+}
 
 function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { fetchProjects, loadingProjects, projects } = useProjectsStore();
-  // Fetch projects when the component mounts
+  const { Allprojects, fetchProjects } = useProjectsStore()
+  const [projects, setProjects] = useState<Project[]>([])
+  const [viewMode, setViewMode] = useState<ViewMode>("grid")
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [searchQuery, setSearchQuery] = useState("")
+
+  // fetch projects once
   useEffect(() => {
-    fetchProjects();
-  }, [fetchProjects]);
+    fetchProjects()
+  }, [])
+
+  // sync Zustand projects to local state and map _id -> id
+  useEffect(() => {
+    const mappedProjects = Allprojects.map((p: any) => ({
+      ...p,
+      id: p._id || p.id,
+    }))
+    setProjects(mappedProjects)
+  }, [Allprojects])
+
+  // Filter projects
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch =
+      project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.leader.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.location.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesSearch
+  })
+
+  // View project
+  const handleViewProject = (project: Project) => {
+    setSelectedProject(project)
+    setViewMode("detail")
+  }
 
 
-  const openModal = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedProject(null);
-    setIsModalOpen(false);
-  };
+  // Navigation
+  const handleBackToGrid = () => {
+    setSelectedProject(null)
+    setViewMode("grid")
+  }
 
 
-  return (
-    <div>
-      <Header />
-      <div className="grid md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-6 p-6">
-        {loadingProjects ? (
-          <div className="flex justify-center py-10">
-            <span className="loading loading-spinner loading-lg" />
-            <p className="ml-4 text-lg">Loading projects...</p>
-          </div>
-        ) : (
-          projects.length === 0 ? (
-            <p>No projects available.</p>
-          ) : null
-        )}
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            projectImage={project.projectImage}
-            title={project.title}
-            summary={project.summary}
-            onLearnMore={() => openModal(project)}
-          />
-        ))}
-      </div>
-      {/* popup modal   */}
-      {isModalOpen && selectedProject && (
-        <ProjectDetails
-          isOpen={isModalOpen}
-          onClose={closeModal}
+
+  // DETAIL VIEW
+  if (viewMode === "detail" && selectedProject) {
+    return (
+      <>
+        <ViewProjectDetail
           project={selectedProject}
+          onBack={handleBackToGrid}
         />
+      </>
+    )
+  }
+
+  // GRID VIEW
+  return (
+    <div className="space-y-6 mt-[115px]">
+      {/* Filters */}
+      <div className="flex gap-4">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <input
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-9 pr-3 py-2 border rounded-lg"
+          />
+        </div>
+      </div>
+
+      {/* Grid */}
+      {filteredProjects.length === 0 ? (
+        <div className="text-center py-16 text-muted-foreground">
+          No projects found
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => handleViewProject(project)}
+            />
+          ))}
+        </div>
       )}
     </div>
   )
