@@ -136,6 +136,12 @@ export default function ChangeMaker() {
             return;
         }
 
+        //check if date is in the past  but you can choose to start today     
+        if (new Date(formData.startDate) < new Date(new Date().setHours(0, 0, 0, 0))) {
+            toast.error("Start date cannot be in the past");
+            return;
+        }
+
         try {
             const res = await axios.post(`${url}/api/user/volunteers`, formData);
 
@@ -337,7 +343,7 @@ export default function ChangeMaker() {
                             </div>
                             <div className="mt-4">
                                 <p className="font-semibold">Availability</p>
-                                <div className="flex gap-3 mx-auto items-center justify-center">
+                                <div className="grid lg:flex gap-3 mx-auto items-center justify-center">
                                     <div className="mx-auto mt-3">
                                         <label>
                                             when do you want to start?
