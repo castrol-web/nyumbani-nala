@@ -400,8 +400,11 @@ export default function ChangeMaker() {
                                 onChange={handleChange}
                             />
 
-                            <button className="w-full bg-[#F63049] py-3 rounded font-bold hover:bg-[#F63049]/80">
-                                SUBMIT & START YOUR JOURNEY
+                            <button disabled={loading} className="w-full bg-[#F63049] py-3 rounded font-bold hover:bg-[#F63049]/80">
+                                {loading && (
+                                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                )}
+                                {loading ? "Submitting..." : "SUBMIT & START YOUR JOURNEY"}
                             </button>
 
                         </form>
@@ -437,11 +440,10 @@ export default function ChangeMaker() {
                     </p>
 
                     <button
-                        disabled={loading}
                         onClick={() => setOpenForm(true)}
                         className="bg-[#F63049]/70 text-slate-100 px-8 py-3 rounded-full font-semibold hover:bg-[#F63049] transition"
                     >
-                        {loading ? "Submitting..." : "BECOME PART OF THE CHANGE"}
+                        BECOME PART OF THE CHANGE
                     </button>
 
                 </div>
