@@ -207,7 +207,7 @@ export default function ChangeMaker() {
 
                 <p className="text-lg mb-6">
                     Becoming a ChangeMaker with Nyumbani Nala is a chance to join local
-                    partners life-changing community projects in Moshi, improving
+                    partners life changing community projects in Moshi, improving
                     children's lives and empowering women.
                 </p>
 
