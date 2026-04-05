@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const url = import.meta.env.VITE_API_URL || "http://localhost:8050";
+const url = import.meta.env.VITE_SERVER_URL || "http://localhost:8050";
 import values from "../../assets/values.jpg"
 import { FaBook, FaHandsHelping, FaFutbol, FaLaptop, FaFemale, FaTools, FaPaintBrush } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
@@ -182,14 +182,14 @@ export default function ChangeMaker() {
                     </h1>
 
                     <p className="text-xl mb-6">
-                        Volunteer in Tanzania with Nyumbani Nala
+                        Make a change in Tanzania with Nyumbani Nala
                     </p>
 
                     <button
                         onClick={() => setOpenForm(true)}
                         className="bg-[#F63049]/70 text-slate-100 px-8 py-3 rounded-full font-semibold hover:bg-[#F63049]"
                     >
-                        BECOME A VOLUNTEER
+                        BECOME A CHANGEMAKER
                     </button>
                 </div>
 
@@ -202,7 +202,7 @@ export default function ChangeMaker() {
             <section className="py-20 px-6 text-center max-w-3xl mx-auto">
 
                 <h2 className="text-3xl font-bold mb-6">
-                    WHY VOLUNTEER WITH US?
+                    WHY BECOME A CHANGEMAKER WITH US?
                 </h2>
 
                 <p className="text-lg mb-6">

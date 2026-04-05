@@ -101,9 +101,10 @@ function Projects() {
 
   if (loadingProjects) {
     return (
-      <div className="flex justify-center items-center py-20 innerset-0 mt-24">
-        <div className="w-10 h-10 border-4 border-gray-300 border-t-[#F63049] rounded-full animate-spin mt-28"></div>
-        <span className="ml-4 text-gray-500">Loading projects...</span>
+      <div className="justify-center items-center py-32 mt-28 text-center mx-auto">
+        
+        <div className="mx-auto w-10 h-10 border-4 border-gray-300 border-t-[#F63049] rounded-full animate-spin"></div>
+        <div className="mx-auto text-gray-500 mt-2">Loading projects...</div>
       </div>
     )
   }
