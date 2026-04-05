@@ -23,7 +23,7 @@ function GetInvolvedCards() {
       <div className="lg:flex grid sm:mx-0 justify-center items-center gap-1.5 w-full">
         <GetInvolved Icon={FaHandHoldingHeart} action={"Create hope"} name={"Become a partner"} description={" stand with us to build brighter futures"} imageUrl={partner} />
         <GetInvolved Icon={LuUsersRound} action={"Make a Donation"} name={"Make a Donation"} description={"every contribution opens a door for someone"} imageUrl={donate} />
-        <GetInvolved Icon={FaHandsHelping} action={"Volunteer"} name={"Volunteer"} description={"change starts with you"} imageUrl={volunteer} />
+        <GetInvolved Icon={FaHandsHelping} action={"make a change"} name={"Change Maker"} description={"change starts with you"} imageUrl={volunteer} />
       </div>
     </div>
 

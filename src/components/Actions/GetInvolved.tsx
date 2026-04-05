@@ -21,8 +21,8 @@ function GetInvolved({ name, description, imageUrl, action, Icon }: GetInvolvedC
             case "Create hope":
                 navigate("/partner");
                 break;
-            case "Volunteer":
-                navigate("/volunteer");
+            case "make a change":
+                navigate("/change-maker?form=open");
                 break;
             default:
                 break;

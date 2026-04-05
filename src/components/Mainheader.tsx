@@ -111,13 +111,13 @@ function Mainheader() {
                         >
                             <BiSolidDonateHeart className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />
                             <div className="items-center justify-center p-1">
-                                <h1 className="lg:text-lg sm:text-md mx-auto text-center md:text-[20px]">BECOME A VOLUNTEER</h1>
+                                <h1 className="lg:text-lg sm:text-md mx-auto text-center md:text-[20px]">BECOME A CHANGEMAKER</h1>
                                 <h1 className="text-[10px] text-[#D02752] group-hover:text-white">APPLY TODAY</h1>
                             </div>
                         </button>
 
                         <Link
-                            to="/sponsor"
+                            to="/donate"
                             className="group outline p-2 rounded-md outline-[#D02752] text-center min-h-[150px] max-w-[600px] mx-auto flex flex-col justify-center hover:bg-linear-to-r from-[#F63049] to-[#D02752]"
                         >
                             <FaBaby className="text-2xl text-[#D02752] mx-auto group-hover:text-white" />

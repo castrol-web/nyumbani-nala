@@ -14,6 +14,7 @@ export default function ChangeMaker() {
     const phoneRegex = /^\+?\d{7,15}$/; // allows optional +, 7-15 digits
     const nameRegex = /^[a-zA-Z\s'-]{2,50}$/; // letters, spaces, hyphen/apostrophe
     const [searchParams] = useSearchParams();
+    const [loading, setloading] = useState(false);
 
     useEffect(() => {
         const formParam = searchParams.get("form");
@@ -142,7 +143,14 @@ export default function ChangeMaker() {
             return;
         }
 
+        // Check that at least one interest is selected
+        if (formData.interests.length === 0) {
+            toast.error("Please select at least one area of interest");
+            return;
+        }
+
         try {
+            setloading(true);
             const res = await axios.post(`${url}/api/user/volunteers`, formData);
 
             if (res.status === 201) {
@@ -167,6 +175,8 @@ export default function ChangeMaker() {
             } else {
                 toast.error("Something went wrong");
             }
+        } finally {
+            setloading(false);
         }
     };
 
@@ -427,10 +437,11 @@ export default function ChangeMaker() {
                     </p>
 
                     <button
+                        disabled={loading}
                         onClick={() => setOpenForm(true)}
                         className="bg-[#F63049]/70 text-slate-100 px-8 py-3 rounded-full font-semibold hover:bg-[#F63049] transition"
                     >
-                        BECOME PART OF THE CHANGE
+                        {loading ? "Submitting..." : "BECOME PART OF THE CHANGE"}
                     </button>
 
                 </div>
