@@ -44,7 +44,7 @@ function Contact() {
       toast.error("Message should be at least 10 characters long");
       return;
     }
-    if(!phoneRegex.test(formData.message) && formData.message.match(/\d/)) {
+    if (!phoneRegex.test(formData.message) && formData.message.match(/\d/)) {
       toast.error("If you include a phone number in your message, please ensure it's valid (7-15 digits, optional +)");
       return;
     }
@@ -149,6 +149,7 @@ function Contact() {
             </div>
 
             <button
+              disabled={loading}
               type="submit"
               className="btn bg-red-500 hover:bg-red-600 text-white px-6 w-fit flex items-center"
             >
