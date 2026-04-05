@@ -17,7 +17,6 @@ function Contact() {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const nameRegex = /^[a-zA-Z\s'-]{2,50}$/; // allows letters, spaces, hyphens, apostrophes 
-  const phoneRegex = /^\+?\d{7,15}$/; // allows optional +, 7-15 digits
 
 
   const [loading, setLoading] = useState(false);
@@ -42,10 +41,6 @@ function Contact() {
     }
     if (formData.message.length < 10) {
       toast.error("Message should be at least 10 characters long");
-      return;
-    }
-    if (!phoneRegex.test(formData.message) && formData.message.match(/\d/)) {
-      toast.error("If you include a phone number in your message, please ensure it's valid (7-15 digits, optional +)");
       return;
     }
 
