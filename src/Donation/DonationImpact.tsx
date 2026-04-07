@@ -30,30 +30,30 @@ function DonationImpact() {
       amount: 210,
       icon: <FaBook />,
       title: "Primary Education for 1 child",
-      info: "Includes materials and uniforms. Annual cost for a public school",
+      info: "Includes materials and uniforms",
     },
     {
       amount: 380,
       icon: <FaBook />,
       title: "Secondary Education for 1 child",
-      info: "Annual cost for a public school",
+      info: "Public school",
     },
     {
       amount: 700,
       icon: <FaBook />,
-      title: "Primary Education for 1 child",
-      info: "Annual cost for a private school",
+      title: "Primary Education (Private)",
+      info: "Annual private school cost",
     },
     {
       amount: 850,
       icon: <FaBook />,
-      title: "Secondary Education for 1 child",
-      info: "Annual cost for a private school",
+      title: "Secondary Education (Private)",
+      info: "Annual private school cost",
     },
     {
       amount: 1000,
       icon: <FaGraduationCap />,
-      title: "University Education for 1 child",
+      title: "University Education",
       info: "Approximate annual cost",
     }
   ];
@@ -73,51 +73,69 @@ function DonationImpact() {
   };
 
   return (
-    <div className="max-w-[900px] mx-auto p-6 rounded-xl shadow-lg">
+    <div className="max-w-4xl mx-auto px-6">
 
-      <h2 className="text-2xl font-bold mb-4 text-center">
-        Make an Impact ❤️
-      </h2>
+      <div className="bg-slate-900 border border-slate-700 rounded-3xl p-10 shadow-xl">
+        {/* Donation Amount */}
+        <div className="text-center mb-6">
 
-      <div className="text-center text-3xl font-semibold mb-4 text-slate-50">
-        €{amount}
-      </div>
+          <div className="text-5xl font-bold text-[#F63049] mb-2">
+            €{amount}
+          </div>
 
-      <input
-        type="range"
-        min="10"
-        max="1000"
-        value={amount}
-        className="w-full"
-        onChange={(e) => setAmount(Number(e.target.value))}
-      />
+          <p className="text-slate-400">
+            Adjust the slider to see what your donation can do
+          </p>
 
-      <div className="flex justify-between text-sm mt-2 text-slate-50">
-        <span>€10</span>
-        <span>€1000</span>
-      </div>
-
-      <div className="mt-6 p-4 bg-slate-800 rounded-lg">
-
-        <div className="flex items-center gap-3 text-lg font-semibold text-white">
-          <span className="text-green-400 text-xl">{impact.icon}</span>
-          {impact.title}
         </div>
 
-        <div className="flex items-center gap-2 text-slate-300 mt-2">
-          <FaInfoCircle />
-          <span>{impact.info}</span>
+        {/* Slider */}
+        <input
+          type="range"
+          min="10"
+          max="1000"
+          value={amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
+          className="w-full accent-[#F63049]"
+        />
+
+        <div className="flex justify-between text-sm text-slate-400 mt-2">
+          <span>€10</span>
+          <span>€1000</span>
         </div>
 
-      </div>
+        {/* Impact Card */}
+        <div className="mt-10 bg-slate-800 rounded-2xl p-6">
 
-      <div className="text-center mt-6">
-        <button
-          onClick={gotoDonate}
-          className="btn bg-[#F63049]/50 hover:bg-[#F63049] outline-1 outline-[#F63049] text-white px-6"
-        >
-          Donate €{amount} now
-        </button>
+          <div className="flex items-center gap-4 text-xl font-semibold">
+
+            <div className="text-[#F63049] text-2xl">
+              {impact.icon}
+            </div>
+
+            {impact.title}
+
+          </div>
+
+          <div className="flex items-center gap-2 text-slate-300 mt-3">
+            <FaInfoCircle />
+            {impact.info}
+          </div>
+
+        </div>
+
+        {/* Donate Button */}
+        <div className="text-center mt-10">
+
+          <button
+            onClick={gotoDonate}
+            className="bg-[#F63049] hover:bg-[#ff4d63] transition px-10 py-4 rounded-xl font-semibold text-lg shadow-lg"
+          >
+            Donate €{amount}
+          </button>
+
+        </div>
+
       </div>
 
     </div>

@@ -6,20 +6,29 @@ import AdminHeader from "./AdminHeader";
 
 const AdminLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+    <div className="flex h-screen overflow-hidden">
+
+      <Sidebar
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
 
       <div
-        className={`grow p-4 flex flex-col min-h-screen transition-all duration-300 ${
+        className={`flex flex-col flex-1 transition-all duration-300 ${
           collapsed ? "md:ml-16" : "md:ml-64"
         }`}
       >
-        <AdminHeader />
-        <div className="grow">
+        <AdminHeader openMenu={() => setMobileOpen(true)} />
+
+        <main className="flex-1 overflow-y-auto p-4">
           <Outlet />
-        </div>
+        </main>
+
         <AdminFooter />
       </div>
     </div>

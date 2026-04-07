@@ -3,58 +3,62 @@ import DonationImpact from "../../Donation/DonationImpact"
 
 function HowToHelp() {
     return (
-        <div className="mt-28">
-            {/* <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10 flex-row-reverse mt-10">
-                <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
-                    <div className="mx-auto mb-2 w-1/2  text-white py-4 rounded-lg flex justify-center items-center">
-                        <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
-                        <span className="text-xl font-bold">VOLUNTEER:</span>
-                        <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
+        <section className="mt-32 py-20 bg-linear-to-b from-slate-900 to-slate-950 text-white">
+
+            <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+                {/* TEXT SIDE */}
+                <div>
+
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="h-0.5 w-12 bg-[#F63049]" />
+                        <span className="uppercase tracking-widest text-[#F63049] font-semibold">
+                            COLLABORATE
+                        </span>
+                        <div className="h-0.5 w-12 bg-[#F63049]" />
                     </div>
-                    <p className="text-sm" data-aos="zoom-out">
-                        Volunteers are the heart of Nyumbani Nala, helping us create real change for children
-                        in Tanzania.
-                        Come alone, with a friend, or as a company—there's a place for you in our mission.
-                        Volunteering isn`t just about giving; it's about learning, growing, and transforming
-                        lives. Many volunteers say their lives changed completely.
-                        You can join any of our projects, no matter your skills—we'll find something you'll
-                        love! From computers, sports, food, education, and more, there's always a way to
-                        make an impact.
-                        Ready to make a difference?
-                        Fill out the form below, and we'll contact you for a quick call to match you with the
-                        best opportunity.
+
+                    <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                        Your support today can change
+                        <span className="text-[#F63049]"> a life forever</span>
+                    </h2>
+
+                    <p className="text-slate-300 text-lg leading-relaxed">
+                        At Nyumbani Nala, we work hand in hand with local NGOs to create
+                        real opportunities for children and families in Moshi. Together we
+                        build sustainable projects that transform lives and create a better
+                        future.
                     </p>
+
                 </div>
-                <div className="avatar" data-aos="slide-left">
-                    <div className="mask mask-hexagon-2 w-80 h-80 mx-auto">
-                        <img src={msamaria} alt="about image" />
+
+                {/* IMAGE SIDE */}
+                <div className="flex justify-center">
+
+                    <div className="relative">
+
+                        <img
+                            src={msamaria}
+                            alt="children"
+                            className="w-[380px] rounded-3xl shadow-2xl"
+                        />
+
+                        <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-[#F63049] rounded-3xl" />
+
                     </div>
+
                 </div>
-            </div> */}
-            <DonationImpact />
-            <div className="lg:flex sm:grid items-center text-center justify-between mx-10 gap-10  mt-10">
-                <div className="lg:w-2/3 items-center justify-center mx-auto mb-10">
-                    <div className="mx-auto mb-2 w-1/2  text-white py-4 rounded-lg flex justify-center items-center">
-                        <hr className="w-1/6 border-t-2 border-white mr-4"></hr>
-                        <span className="text-xl font-bold">COLABORATE:</span>
-                        <hr className="w-1/6 border-t-2 border-white ml-4"></hr>
-                    </div>
-                    <p className="text-sm" data-aos="zoom-out">
-                        With just $50 per year, you can fully cover the public school fees for one child in
-                        Tanzania—providing access to education and a brighter future.
-                        For $100, you can sponsor a weekend bootcamp for 10 children, giving them a
-                        meaningful and educational weekend experience.
-                        For around $50, you can provide a month of nutritious meals for one
-                        child—ensuring they have the energy to learn, play, and grow
-                    </p>
-                </div>
-                <div className="avatar" data-aos="slide-right">
-                    <div className="mask mask-hexagon-2 w-80 h-80 mx-auto">
-                        <img src={msamaria} alt="about image" />
-                    </div>
-                </div>
+
             </div>
-        </div>
+
+            <div className="mt-24">
+                <h2 className="text-3xl font-bold text-center mb-8">
+                    See the impact of your donation ❤️
+                </h2>
+                <DonationImpact />
+            </div>
+
+        </section>
     )
 }
 

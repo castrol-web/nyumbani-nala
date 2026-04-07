@@ -17,7 +17,7 @@ function Navbar() {
   const navLinks = [
     { name: t("HOME"), to: "/" },
     { name: t("ABOUT"), to: "/about" },
-    { name: t("OUR PROJECTS"), to: "/our-projects" },
+    { name: t("PROJECTS"), to: "/our-projects" },
     { name: t("CHANGE MAKER"), to: "/change-maker" },
     {name: t("GET INVOLVED"), to: "/get-involved"},
     { name: t("CONTACT US"), to: "/contact" },
