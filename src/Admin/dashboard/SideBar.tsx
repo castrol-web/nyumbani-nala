@@ -21,6 +21,7 @@ interface SidebarProps {
 const navItems = [
     { label: "Dashboard", icon: <FaHome />, href: "/admin", end: true },
     { label: "Projects", icon: <FaUserTie />, href: "/admin/projects" },
+    { label: "ChangeMaker", icon: <FaFileAlt />, href: "/admin/changemakers" },
     { label: "Donations", icon: <FaFileAlt />, href: "/admin/donations" },
     { label: "Contact", icon: <FaFileAlt />, href: "/admin/contacts" },
 ];

@@ -20,6 +20,7 @@ import BecomePartner from "./components/Actions/BecomePartner";
 import HowToHelp from "./components/HowToHelp/HowToHelp";
 import ProjectsView from "./Admin/Projects/ProjectsView";
 import ChangeMaker from "./components/Actions/ChangeMaker";
+import Changemakers from "./Admin/changemakers/Changemakers";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
             <Route index element={<OverviewView />} />
             <Route path="projects" element={<ProjectsView />} />
             <Route path="donations" element={<ManageDonations />} />
+            <Route path="changemakers" element={<Changemakers />} />
             <Route path="contacts" element={<ManageContacts />} />
           </Route>
         </Routes>

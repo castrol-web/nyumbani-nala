@@ -19,9 +19,7 @@ const AdminLayout = () => {
       />
 
       <div
-        className={`flex flex-col flex-1 transition-all duration-300 ${
-          collapsed ? "md:ml-16" : "md:ml-64"
-        }`}
+        className="flex flex-col flex-1 transition-all duration-300"
       >
         <AdminHeader openMenu={() => setMobileOpen(true)} />
 
