@@ -3,7 +3,7 @@ import DonationImpact from "../../Donation/DonationImpact"
 
 function HowToHelp() {
     return (
-        <section className="mt-32 py-20 bg-linear-to-b from-slate-900 to-slate-950 text-white">
+        <section className="py-20 mt-28 bg-linear-to-b from-slate-900 to-slate-950 text-white">
 
             <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
