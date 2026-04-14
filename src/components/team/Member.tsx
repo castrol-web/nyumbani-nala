@@ -1,13 +1,19 @@
 type teamProps = {
     position: string;
-    url:string;
+    url: string;
+    name: string;
+    organization: string;
+    details: string;
 }
 
-function Member({ position,url }: teamProps) {
+function Member({ position, url, name, organization, details }: teamProps) {
     return (
-        <div className="w-30 text-center mb-2 justify-center mx-auto">
-            <img src={url} alt={url} className="rounded-full w-10 h-10 mx-auto mb-2 hover:border" />
-            <p className="text-xs text-gray-400">{position}</p>
+        <div className="text-center justify-center mx-auto rounded-lg outline-1 outline-gray-300/40 pt-2 pb-2 items-center">
+            <img src={url} alt={url} className="rounded-full w-20 h-20 mx-auto mb-2 hover:border" />
+            <p><span className="text-gray-500">Name:</span>{name}</p>
+            <p><span className="text-gray-500">Position:</span>{position}</p>
+            <p><span className="text-gray-500">Organization:</span>{organization}</p>
+            <p className="text-sm"><span className="text-gray-500">Description:</span>{details}</p>
         </div>
     )
 }
